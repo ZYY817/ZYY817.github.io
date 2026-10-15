@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-title-zh="项目故事 · 宇奇引擎 Yuqi Engine" data-title-en="Story · Yuqi Engine">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>项目故事 · 宇奇引擎 Yuqi Engine</title>
+<meta name="description" content="宇奇引擎背后的故事：一个独立开发者，一次误删事故，和一份公开给后来者的源码。">
+<meta name="theme-color" content="#f6f8f8">
+<meta property="og:title" content="项目故事 · 宇奇引擎 Yuqi Engine">
+<meta property="og:description" content="一个独立开发者，一次误删事故，和一份公开给后来者的源码。">
+<meta property="og:image" content="assets/img/overview-v0.1.1.png">
+<link rel="icon" type="image/png" href="assets/img/logo-dark.png">
+<script>(function(){var l;try{l=localStorage.getItem("yuqi-lang")}catch(e){}if(l!=="zh"&&l!=="en"){l=(navigator.language||"zh").toLowerCase().indexOf("zh")===0?"zh":"en"}document.documentElement.setAttribute("data-lang",l)})();</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/icons.js"></script>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="宇奇引擎 Yuqi Engine">
+      <img src="assets/img/logo-dark.png" alt="">
+      <span>宇奇引擎 <small>Yuqi Engine</small></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="index.html#features"><span class="zh">理念</span><span class="en">Philosophy</span></a>
+      <a href="index.html#how"><span class="zh">工作方式</span><span class="en">How it works</span></a>
+      <a href="index.html#modules"><span class="zh">模块</span><span class="en">Modules</span></a>
+      <a href="index.html#safety"><span class="zh">安全</span><span class="en">Safety</span></a>
+      <a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a>
+      <a href="guide.html"><span class="zh">使用指南</span><span class="en">Guide</span></a>
+      <a class="active" href="story.html" aria-current="page"><span class="zh">项目故事</span><span class="en">Story</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-set-lang="zh">中</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="icon-btn" href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon fill"><use href="#i-github"/></svg></a>
+      <a class="btn btn-primary btn-sm nav-cta" href="download.html"><span class="zh">免费下载</span><span class="en">Download</span></a>
+      <button class="icon-btn menu-btn" type="button" aria-label="菜单 Menu" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <a href="index.html#features"><span class="zh">理念</span><span class="en">Philosophy</span></a>
+  <a href="index.html#how"><span class="zh">工作方式</span><span class="en">How it works</span></a>
+  <a href="index.html#modules"><span class="zh">模块</span><span class="en">Modules</span></a>
+  <a href="index.html#safety"><span class="zh">安全</span><span class="en">Safety</span></a>
+  <a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a>
+  <a href="guide.html"><span class="zh">使用指南</span><span class="en">Guide</span></a>
+  <a class="active" href="story.html"><span class="zh">项目故事</span><span class="en">Story</span></a>
+  <a class="btn btn-primary" href="download.html"><span class="zh">免费下载</span><span class="en">Download for free</span></a>
+</div>
+
+<main>
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="grid-bg"></div>
+  <div class="wrap">
+    <div class="kicker reveal"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">项目故事</span><span class="en">Story</span></div>
+    <h1 class="h1 reveal" style="--d:80ms"><span class="zh">一个人，<br>在下班后慢慢磨出来的。</span><span class="en">Built by one person,<br>in the hours after work.</span></h1>
+    <p class="lead reveal" style="--d:160ms"><span class="zh">宇奇引擎是智宇借着 AI 的手一点点做出来的作品——代码、界面与文档初稿大多出自 AI；但要做什么、砍掉什么，在一台台真机上反复跑测、把不对劲的地方推倒重来，每一个决定与最终兜底，背后都是一个具体的人。</span><span class="en">Yuqi Engine grew in Zhiyu's evenings with AI doing much of the drafting — code, interface and docs alike. Yet deciding what to build and what to cut, testing on real hardware, catching what felt wrong and standing behind every release — all of that is human work.</span></p>
+  </div>
+</section>
+
+<div class="page-body">
+<div class="wrap">
+
+<!-- ============ TIMELINE ============ -->
+<section class="block">
+  <div class="block-title reveal">
+    <span class="n">01</span>
+    <h2><span class="zh">到现在，经历了这些</span><span class="en">The story so far</span></h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-item ok reveal">
+      <span class="tl-date">2026-02-27</span>
+      <h3><span class="zh">首个内测版 v0.1-alpha 发布</span><span class="en">First alpha: v0.1-alpha</span></h3>
+      <p><span class="zh">第一个对外公开的版本，在作者的<a href="https://space.bilibili.com/41173761" target="_blank" rel="noopener">哔哩哔哩</a>和抖音频道发布。当时还只是一个把散落设置集中起来的自用工具。</span><span class="en">The first public build, released on the author's <a href="https://space.bilibili.com/41173761" target="_blank" rel="noopener">Bilibili</a> and Douyin channels — then still a personal tool gathering scattered settings into one place.</span></p>
+    </div>
+    <div class="tl-item ok reveal">
+      <span class="tl-date">2026-08-09</span>
+      <h3><span class="zh">v0.1.2 发布：功能最完整的一版</span><span class="en">v0.1.2: the most complete build</span></h3>
+      <p><span class="zh">中英文双语的完整体验版在 GitHub 发布，功能迭代到最完整的状态，也在玩家社区里积累起第一批用户。</span><span class="en">The bilingual, feature-complete release went up on GitHub — the fullest the project had ever been, gathering its first users in gaming communities.</span></p>
+    </div>
+    <div class="tl-item bad reveal">
+      <span class="tl-date"><span class="zh">2026 年 8 月</span><span class="en">August 2026</span></span>
+      <h3><span class="zh">误删事故：最完整的工程没了</span><span class="en">The accident: the fullest codebase lost</span></h3>
+      <p><span class="zh">一次误操作，让迭代到最完整的整套工程源文件没能留下，也没有可恢复的完整备份。这次事故成了最深刻的教训：本地保存不等于真正备份。这也直接塑造了宇奇引擎如今的核心底线——先建还原点、可逆可恢复、先留退路。</span><span class="en">One accidental deletion wiped the entire project at its most complete state — with no full backup to restore from. That accident became the hardest lesson: local storage is not a backup. It directly forged Yuqi Engine's core baseline: create restore points first, ensure full reversibility, and always have a way back.</span></p>
+    </div>
+    <div class="tl-item reveal">
+      <span class="tl-date">2026-08-28</span>
+      <h3><span class="zh">幸存的源码，整理后公开</span><span class="en">What survived, published</span></h3>
+      <p><span class="zh">作者没有就此停掉项目。把幸存的部分整理成公开快照传到 GitHub，如实标注包含与不包含的内容——公开的目的之一，就是交给愿意继续完善它的人。</span><span class="en">Rather than abandoning it, the author organized what survived into a public snapshot on GitHub, documenting honestly what is and isn't there — partly to hand it to anyone willing to carry it forward.</span></p>
+    </div>
+    <div class="tl-item ok reveal">
+      <span class="tl-date">2026-09-15</span>
+      <h3><span class="zh">v0.1.4-preview：在幸存者上继续</span><span class="en">v0.1.4-preview: building on the survivor</span></h3>
+      <p><span class="zh">在那份幸存的早期源码基础上继续打磨并发布：修复了管理员权限误提示与安全检测页报错，重做了 CPU 核心管理页。断掉的路，重新接上了。</span><span class="en">Development continued on that surviving early source: fixed the false admin prompt and the security check page crash, and rebuilt the CPU core management view. The broken thread was picked back up.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LESSON ============ -->
+<section class="block">
+  <blockquote class="quote reveal">
+    <p><span class="zh">“先理解，再选择；可验证，也可恢复。”</span><span class="en">“Understand first, then choose. Verifiable, and reversible.”</span></p>
+    <footer><span class="zh">宇奇引擎的核心底线——不做黑盒优化。也是那次事故之后，作者对每个用户最想说的一句话：在动手之前，先留好退路。</span><span class="en">Yuqi Engine's core baseline: no black-box optimization. And after that accident, the one message the author wants every user to take away: always set a fallback before you tweak.</span></footer>
+  </blockquote>
+</section>
+
+<!-- ============ SOURCE SCOPE ============ -->
+<section class="block">
+  <div class="block-title reveal">
+    <span class="n">02</span>
+    <h2><span class="zh">公开的源码里有什么</span><span class="en">What's in the published source</span></h2>
+  </div>
+  <div class="two-col">
+    <div class="list-card reveal">
+      <h3><svg class="icon"><use href="#i-check"/></svg><span class="zh">包含</span><span class="en">Included</span></h3>
+      <ul>
+        <li><span class="zh">最早内测版延续下来的核心源码（v0.1.4-preview 基线）</span><span class="en">Core source descending from the first alpha (the v0.1.4-preview baseline)</span></li>
+        <li><span class="zh">界面视觉设计方案</span><span class="en">UI visual design concepts</span></li>
+        <li><span class="zh">检测与优化的核心实现思路</span><span class="en">Core implementation of detection &amp; optimization</span></li>
+      </ul>
+    </div>
+    <div class="list-card no reveal" style="--d:80ms">
+      <h3><svg class="icon"><use href="#i-close"/></svg><span class="zh">不包含</span><span class="en">Not included</span></h3>
+      <ul>
+        <li><span class="zh">迭代到 v0.1.2 的完整工程源码（误删事故中丢失）</span><span class="en">The full codebase iterated to v0.1.2 (lost in the deletion)</span></li>
+        <li><span class="zh">「持续保持助手」（仅对已应用且带安全规则的项目做周期复核的轻量后台组件）等历史功能</span><span class="en">Historical features like the continuous maintenance assistant (a lightweight helper that only re-checks already-applied safe items)</span></li>
+        <li><span class="zh">发布版中的全部模块实现</span><span class="en">All module implementations from release builds</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="prose reveal"><span class="zh">以上范围以仓库 README 的说明为准。看到本站任何与源码实际情况不符的描述，欢迎到 <a href="https://github.com/ZYY817/YuqiEngine/issues" target="_blank" rel="noopener">Issues</a> 指出。</span><span class="en">Refer to the repository README for the authoritative scope. If anything on this site misrepresents the source, please point it out in <a href="https://github.com/ZYY817/YuqiEngine/issues" target="_blank" rel="noopener">Issues</a>.</span></p>
+</section>
+
+<!-- ============ LICENSE ============ -->
+<section class="block">
+  <div class="block-title reveal">
+    <span class="n">03</span>
+    <h2><span class="zh">使用与再分发</span><span class="en">Use &amp; redistribution</span></h2>
+  </div>
+  <p class="prose reveal"><span class="zh">软件永久免费，仓库标记 MIT License。README 另有约定：禁止倒卖、付费分发和商业使用；衍生作品需保留原作者信息。两类条款同时存在，使用前请以仓库内的最新说明为准。</span><span class="en">The app is free forever and the repository carries the MIT license. The README adds further terms: no resale, paid distribution or commercial use, and derivative works must credit the original author. Both apply — check the repository for the latest wording.</span></p>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="block">
+  <div class="block-title reveal">
+    <span class="n">04</span>
+    <h2><span class="zh">想参与？</span><span class="en">Want to join in?</span></h2>
+  </div>
+  <div class="steps three">
+    <div class="step-card reveal">
+      <h3><svg class="icon"><use href="#i-star"/></svg> <span class="zh">给个 Star</span><span class="en">Star the repo</span></h3>
+      <p><span class="zh">对一个独立开发者来说，Star 是最直接的鼓励。</span><span class="en">For an independent developer, a star is the most direct encouragement.</span></p>
+      <p><a href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener"><span class="zh">去 GitHub →</span><span class="en">Open GitHub →</span></a></p>
+    </div>
+    <div class="step-card reveal" style="--d:80ms">
+      <h3><svg class="icon"><use href="#i-code"/></svg> <span class="zh">接过源码</span><span class="en">Pick up the source</span></h3>
+      <p><span class="zh">源码公开的目的之一，是欢迎有能力的后来者继续维护或学习参考。</span><span class="en">The source is open partly so capable developers can maintain or learn from it.</span></p>
+      <p><a href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener"><span class="zh">查看仓库 →</span><span class="en">View repository →</span></a></p>
+    </div>
+    <div class="step-card reveal" style="--d:160ms">
+      <h3><svg class="icon"><use href="#i-heart"/></svg> <span class="zh">关注作者</span><span class="en">Follow the author</span></h3>
+      <p><span class="zh">开发进展和使用技巧会发在抖音和 B 站。</span><span class="en">Progress updates and tips are posted on Douyin and Bilibili.</span></p>
+      <p><a href="https://space.bilibili.com/41173761" target="_blank" rel="noopener">Bilibili · 智宇丶817 →</a></p>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/img/logo-dark.png" alt=""><span>宇奇引擎 <small>Yuqi Engine</small></span></a>
+        <p class="footer-motto"><span class="zh">先理解，再选择；可验证，也可恢复。</span><span class="en">Understand first, then choose. Verifiable, and reversible.</span></p>
+      </div>
+      <div>
+        <h4><span class="zh">产品</span><span class="en">Product</span></h4>
+        <ul>
+          <li><a href="index.html#features"><span class="zh">功能</span><span class="en">Features</span></a></li>
+          <li><a href="index.html#safety"><span class="zh">安全与恢复</span><span class="en">Safety</span></a></li>
+          <li><a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a></li>
+          <li><a href="guide.html"><span class="zh">使用指南</span><span class="en">Guide</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="zh">项目</span><span class="en">Project</span></h4>
+        <ul>
+          <li><a href="story.html"><span class="zh">项目故事</span><span class="en">Story</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener"><span class="zh">源码</span><span class="en">Source code</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine/issues" target="_blank" rel="noopener"><span class="zh">问题反馈</span><span class="en">Issues</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine/releases" target="_blank" rel="noopener"><span class="zh">版本发布</span><span class="en">Releases</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="zh">官方渠道</span><span class="en">Official channels</span></h4>
+        <ul>
+          <li><a href="https://www.douyin.com/user/MS4wLjABAAAAtudWpqXWwZXYdkSk0YT36zpHEPiS2YuFsQL21ihiUxI" target="_blank" rel="noopener"><span class="zh">抖音 · 智宇</span><span class="en">Douyin · 智宇</span></a></li>
+          <li><a href="https://space.bilibili.com/41173761" target="_blank" rel="noopener">Bilibili · 智宇丶817</a></li>
+          <li><a href="https://github.com/ZYY817" target="_blank" rel="noopener">GitHub · ZYY817</a></li>
+          <li><a href="https://pan.quark.cn/s/432600ae9d8d" target="_blank" rel="noopener"><span class="zh">夸克网盘（备用下载）</span><span class="en">Quark Drive (mirror)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> <span class="zh">宇奇引擎 · 由智宇与 AI 协作开发</span><span class="en">Yuqi Engine · Built by Zhiyu with AI collaboration</span></span>
+      <span><span class="zh">永久免费 · 禁止倒卖、付费分发和商业使用</span><span class="en">Free forever · No resale, paid distribution or commercial use</span></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

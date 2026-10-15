@@ -1,0 +1,740 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-title-zh="宇奇引擎 · Yuqi Engine — 看清楚，再决定" data-title-en="Yuqi Engine — See every setting clearly. Then decide.">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宇奇引擎 · Yuqi Engine — 看清楚，再决定</title>
+<meta name="description" content="宇奇引擎：面向 Windows 10 / 11 的模块化系统优化、检测与恢复工具。每一项都写明作用、风险和恢复方式。永久免费。">
+<meta name="theme-color" content="#f6f8f8">
+<meta property="og:title" content="宇奇引擎 · Yuqi Engine">
+<meta property="og:description" content="先理解，再选择；可验证，也可恢复。面向 Windows 10 / 11 的系统优化、检测与恢复工具。">
+<meta property="og:image" content="assets/img/overview-v0.1.1.png">
+<link rel="icon" type="image/png" href="assets/img/logo-dark.png">
+<script>(function(){var l;try{l=localStorage.getItem("yuqi-lang")}catch(e){}if(l!=="zh"&&l!=="en"){l=(navigator.language||"zh").toLowerCase().indexOf("zh")===0?"zh":"en"}document.documentElement.setAttribute("data-lang",l)})();</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/icons.js"></script>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="宇奇引擎 Yuqi Engine">
+      <img src="assets/img/logo-dark.png" alt="">
+      <span>宇奇引擎 <small>Yuqi Engine</small></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#features"><span class="zh">它做什么</span><span class="en">What it does</span></a>
+      <a href="#how"><span class="zh">工作方式</span><span class="en">How it works</span></a>
+      <a href="#modules"><span class="zh">模块</span><span class="en">Modules</span></a>
+      <a href="#safety"><span class="zh">安全</span><span class="en">Safety</span></a>
+      <a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a>
+      <a href="guide.html"><span class="zh">使用指南</span><span class="en">Guide</span></a>
+      <a href="story.html"><span class="zh">项目故事</span><span class="en">Story</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-set-lang="zh">中</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="icon-btn" href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon fill"><use href="#i-github"/></svg></a>
+      <a class="btn btn-primary btn-sm nav-cta" href="download.html"><span class="zh">免费下载</span><span class="en">Download</span></a>
+      <button class="icon-btn menu-btn" type="button" aria-label="菜单 Menu" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <a href="#features"><span class="zh">它做什么</span><span class="en">What it does</span></a>
+  <a href="#how"><span class="zh">工作方式</span><span class="en">How it works</span></a>
+  <a href="#modules"><span class="zh">模块</span><span class="en">Modules</span></a>
+  <a href="#safety"><span class="zh">安全</span><span class="en">Safety</span></a>
+  <a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a>
+  <a href="guide.html"><span class="zh">使用指南</span><span class="en">Guide</span></a>
+  <a href="story.html"><span class="zh">项目故事</span><span class="en">Story</span></a>
+  <a class="btn btn-primary" href="download.html"><span class="zh">免费下载</span><span class="en">Download for free</span></a>
+</div>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <a class="pill fade-up" style="--d:80ms" href="download.html">
+        <span class="dot"></span>
+        <span><span class="zh"><b data-rel-tag>v0.1.4-preview</b> 已发布</span><span class="en"><b data-rel-tag>v0.1.4-preview</b> is out</span></span>
+        <span class="tag"><span class="zh">查看下载</span><span class="en">Get it</span><svg class="icon" style="width:13px;height:13px"><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <h1 class="hero-title">
+        <span class="zh">
+          <span class="line"><span style="--d:180ms">先<span class="accent">看懂</span> Windows，</span></span>
+          <span class="line"><span style="--d:320ms">再决定怎么改。</span></span>
+        </span>
+        <span class="en">
+          <span class="line"><span style="--d:180ms">Understand Windows first.</span></span>
+          <span class="line"><span style="--d:320ms">Then <span class="accent">decide</span> what to change.</span></span>
+        </span>
+      </h1>
+
+      <p class="hero-sub fade-up" style="--d:480ms">
+        <span class="zh">它把散落在 Windows 各处的设置、服务和组件整理到一个界面，先读出电脑现在的真实状态，再把每一项的作用、风险和怎么改回去写清楚。你只看不点，它就什么都不动。</span>
+        <span class="en">It gathers the settings and services scattered across Windows into one screen — reads your machine's real state first, and spells out each item's purpose, risk and undo path. Look without applying, and nothing changes.</span>
+      </p>
+
+      <div class="hero-ctas fade-up" style="--d:600ms">
+        <a class="btn btn-primary" href="download.html">
+          <svg class="icon"><use href="#i-download"/></svg>
+          <span class="zh">免费下载</span><span class="en">Download for free</span>
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener">
+          <svg class="icon fill"><use href="#i-github"/></svg>
+          <span class="zh">查看源码</span><span class="en">View source</span>
+          <svg class="icon arrow"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-meta fade-up" style="--d:720ms">
+        <span><svg class="icon"><use href="#i-checkCircle"/></svg><span class="zh">免费 · 源码公开可审查</span><span class="en">Free · source-available to inspect</span></span>
+        <span><svg class="icon"><use href="#i-eye"/></svg><span class="zh">改前写明影响和退路</span><span class="en">Impact &amp; undo path shown first</span></span>
+        <span><svg class="icon"><use href="#i-lock"/></svg><span class="zh">不自动改动系统</span><span class="en">Nothing changes without you</span></span>
+        <span><svg class="icon"><use href="#i-star"/></svg><span class="mono" data-stars>635</span>&nbsp;GitHub Stars</span>
+      </div>
+    </div>
+
+    <div class="hero-stage">
+      <div class="float-chip chip-a" style="--d:1300ms">
+        <span class="badge" style="background:var(--ok-soft);color:var(--ok)"><svg class="icon"><use href="#i-eye"/></svg></span>
+        <span><span class="zh"><b>只做检测</b> · 不写入系统设置</span><span class="en"><b>Inspect only</b> · nothing is written</span></span>
+      </div>
+      <div class="float-chip chip-b" style="--d:1500ms">
+        <span class="badge" style="background:var(--warn-soft);color:var(--warn)"><svg class="icon"><use href="#i-lock"/></svg></span>
+        <span><span class="zh"><b>未确认的项目</b> · 保持锁定</span><span class="en"><b>Unconfirmed items</b> · stay locked</span></span>
+      </div>
+      <div class="window hero-window">
+        <div class="app-embed" data-embed="hero">
+          <iframe data-src="app/?embed=1" title="宇奇引擎早期版本界面视觉稿 · 可交互预览 Yuqi Engine early UI preview" tabindex="-1"></iframe>
+          <div class="embed-live" aria-hidden="true"><i></i><span class="zh">界面可直接点击体验</span><span class="en">Interactive — click around</span></div>
+          <picture>
+            <source type="image/webp" srcset="assets/img/app-preview.webp">
+            <img class="fallback-shot" src="assets/img/app-preview.png" width="1440" height="900" alt="宇奇引擎早期版本界面视觉稿 Yuqi Engine early UI visual" loading="lazy">
+          </picture>
+        </div>
+      </div>
+      <div class="hero-reflect"></div>
+      <p class="shot-note">
+        <span class="zh">早期版本界面视觉稿（可直接点击左侧模块体验） · 当前发布版界面与模块以软件为准 · <a href="app/" target="_blank" rel="noopener">全屏打开 ↗</a></span>
+        <span class="en">Early-version interactive UI visual (click the sidebar to explore) · shipped UI and modules follow the release build · <a href="app/" target="_blank" rel="noopener">Open fullscreen ↗</a></span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT IT DOES ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">它做什么</span><span class="en">What it does</span></div>
+      <h2 class="h2"><span class="zh">它做的事情很简单。</span><span class="en">It does a simple thing, carefully.</span></h2>
+      <p class="lead">
+        <span class="zh">平时想改个系统设置，往往得在控制面板、注册表和服务里来回翻，改完还容易忘了动过哪。它只做三件事：把这些开关收拢到一处，把每一项讲明白，并在改动前先留好退路。</span>
+        <span class="en">Changing a Windows setting usually means digging through Control Panel, the Registry and Services — and forgetting what you touched a week later. Yuqi Engine does three things: brings those switches into one place, explains each one plainly, and saves a way back before anything changes.</span>
+      </p>
+    </div>
+
+    <div class="what-grid">
+      <article class="card what-card reveal" style="--d:0ms">
+        <div class="num">01</div>
+        <h3><span class="zh">集中</span><span class="en">In one place</span></h3>
+        <p><span class="zh">散落在系统各处的设置、服务和计划任务，按模块收进同一个窗口，不用再到处翻找。</span><span class="en">Settings scattered across Control Panel, Registry, Services and Task Scheduler are organized into modules in a single window.</span></p>
+        <div class="mini" aria-hidden="true">
+          <div class="mini-list">
+            <div class="mini-row on"><svg class="icon"><use href="#i-game"/></svg><span class="zh">游戏优化中心</span><span class="en">Game Center</span></div>
+            <div class="mini-row"><svg class="icon"><use href="#i-memory"/></svg><span class="zh">内存优化</span><span class="en">Memory</span></div>
+            <div class="mini-row"><svg class="icon"><use href="#i-monitor"/></svg><span class="zh">显卡优化</span><span class="en">Graphics</span></div>
+            <div class="mini-row"><svg class="icon"><use href="#i-network"/></svg><span class="zh">网络优化</span><span class="en">Network</span></div>
+            <div class="mini-row"><svg class="icon"><use href="#i-gear"/></svg><span class="zh">系统服务</span><span class="en">Services</span></div>
+            <div class="mini-row"><svg class="icon"><use href="#i-trash"/></svg><span class="zh">系统清理</span><span class="en">Cleanup</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card what-card reveal" style="--d:90ms">
+        <div class="num">02</div>
+        <h3><span class="zh">说明</span><span class="en">Explained</span></h3>
+        <p><span class="zh">每一项改动前，都写清楚作用、风险和怎么改回去。先看明白，再决定动不动。</span><span class="en">Before you change anything, every item spells out what it does, its risks and how to undo it.</span></p>
+        <div class="mini" aria-hidden="true">
+          <div class="mini-detail">
+            <div class="t"><svg class="icon" style="width:16px;height:16px;color:var(--brand)"><use href="#i-monitor"/></svg><span class="zh">全局优先独显</span><span class="en">Prefer discrete GPU</span></div>
+            <dl>
+              <dt><span class="zh">作用</span><span class="en">Effect</span></dt>
+              <dd><span class="zh">多显卡设备上减少游戏误用核显</span><span class="en">Reduces games picking the integrated GPU</span></dd>
+              <dt><span class="zh">风险</span><span class="en">Risk</span></dt>
+              <dd><span class="zh">安全</span><span class="en">Safe</span></dd>
+              <dt><span class="zh">恢复</span><span class="en">Undo</span></dt>
+              <dd><span class="zh">支持恢复</span><span class="en">Restorable</span></dd>
+            </dl>
+            <div class="tags">
+              <span class="st st-ok"><i></i><span class="zh">系统已生效</span><span class="en">In effect</span></span>
+              <span class="st st-na"><i></i><span class="zh">无需管理员</span><span class="en">No admin needed</span></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card what-card reveal" style="--d:180ms">
+        <div class="num">03</div>
+        <h3><span class="zh">可退回</span><span class="en">Reversible</span></h3>
+        <p><span class="zh">改动前先存好软件备份或系统还原点；需要退回时，也会先重新读取当前状态再恢复。</span><span class="en">Backups and restore points are saved before changes; when rolling back, the current state is re-read first.</span></p>
+        <div class="mini" aria-hidden="true">
+          <div class="mini-tl">
+            <div class="step done"><b><span class="zh">创建备份</span><span class="en">Create a backup</span></b><span><span class="zh">保存相关设置与注册表项</span><span class="en">Saves related settings and registry keys</span></span></div>
+            <div class="step done"><b><span class="zh">应用所选项目</span><span class="en">Apply selected items</span></b><span><span class="zh">应用后重新读取确认</span><span class="en">Re-read to confirm afterwards</span></span></div>
+            <div class="step"><b><span class="zh">需要时恢复</span><span class="en">Restore when needed</span></b><span><span class="zh">恢复前再次读取当前状态</span><span class="en">State is re-read before restoring</span></span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="section flow-section" id="how">
+  <div class="flow-pin" id="flowPin" data-step="0">
+    <div class="flow-sticky">
+      <div class="wrap">
+        <div class="section-head center">
+          <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">工作方式</span><span class="en">How it works</span></div>
+          <h2 class="h2"><span class="zh">每一步，你都知道发生了什么。</span><span class="en">You always know what it's doing.</span></h2>
+        </div>
+
+        <div class="flow-cols">
+          <ol class="flow-steps">
+            <li class="fstep" data-i="0">
+              <div class="flow-node"><svg class="icon"><use href="#i-eye"/></svg></div>
+              <div class="idx">01</div>
+              <h3><span class="zh">检测</span><span class="en">Inspect</span></h3>
+              <p><span class="zh">读取系统当前的真实状态，不做任何修改。</span><span class="en">Reads the real current state of your system. Nothing is changed.</span></p>
+            </li>
+            <li class="fstep" data-i="1">
+              <div class="flow-node"><svg class="icon"><use href="#i-book"/></svg></div>
+              <div class="idx">02</div>
+              <h3><span class="zh">了解</span><span class="en">Understand</span></h3>
+              <p><span class="zh">查看每一项的作用、风险、目标位置与恢复方式。</span><span class="en">See what each item does, its risks, where it applies and how to undo it.</span></p>
+            </li>
+            <li class="fstep" data-i="2">
+              <div class="flow-node"><svg class="icon"><use href="#i-hand"/></svg></div>
+              <div class="idx">03</div>
+              <h3><span class="zh">选择</span><span class="en">Choose</span></h3>
+              <p><span class="zh">只勾选你需要、也看得懂的项目。</span><span class="en">Pick only the items you need and understand.</span></p>
+            </li>
+            <li class="fstep" data-i="3">
+              <div class="flow-node"><svg class="icon"><use href="#i-refresh"/></svg></div>
+              <div class="idx">04</div>
+              <h3><span class="zh">应用并复核</span><span class="en">Apply &amp; verify</span></h3>
+              <p><span class="zh">应用后重新读取，确认是否真正生效。</span><span class="en">After applying, the state is read again to confirm it took effect.</span></p>
+            </li>
+            <li class="fstep" data-i="4">
+              <div class="flow-node"><svg class="icon"><use href="#i-backup"/></svg></div>
+              <div class="idx">05</div>
+              <h3><span class="zh">恢复</span><span class="en">Restore</span></h3>
+              <p><span class="zh">不合适就退回去，恢复前会再次读取状态。</span><span class="en">Not right for you? Roll it back — the state is re-read first.</span></p>
+            </li>
+          </ol>
+
+          <div class="flow-stage" aria-hidden="true">
+            <div class="fvis" data-i="0">
+              <div class="term">
+                <div class="term-bar"><i></i><i></i><i></i><span class="zh">检测 · 只读</span><span class="en">inspect · read-only</span></div>
+                <div class="term-body" data-term>
+                  <p><span class="t-c">›</span><span class="zh">正在读取当前系统状态</span><span class="en">Reading current system state</span><span class="t-mut"> …</span></p>
+                  <p><i class="t-d ok"></i><span class="zh">显示与图形设置</span><span class="en">Display &amp; graphics</span><span class="t-mut"> — </span><b><span class="zh">已确认</span><span class="en">confirmed</span></b></p>
+                  <p><i class="t-d ok"></i><span class="zh">系统服务</span><span class="en">System services</span><span class="t-mut"> — </span><b><span class="zh">已确认</span><span class="en">confirmed</span></b></p>
+                  <p><i class="t-d warn"></i><span class="zh">网络参数</span><span class="en">Network parameters</span><span class="t-mut"> — </span><span class="t-warn"><span class="zh">待确认</span><span class="en">pending</span></span></p>
+                  <p><i class="t-d na"></i><span class="zh">组策略项</span><span class="en">Group policy item</span><span class="t-mut"> — </span><span class="t-mut"><span class="zh">不可用 · 需管理员权限</span><span class="en">unavailable · needs admin</span></span></p>
+                  <p><span class="t-c">›</span><span class="zh">检测完成 · 4 项已读取 · 未写入任何设置</span><span class="en">Done · 4 items read · nothing written</span></p>
+                  <p class="t-caret-line"><span class="t-caret"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="fvis" data-i="1">
+              <div class="card fvis-card">
+                <div class="mini-detail">
+                  <div class="t"><svg class="icon" style="width:16px;height:16px;color:var(--brand)"><use href="#i-sliders"/></svg><span class="zh">禁用自动维护夜间唤醒</span><span class="en">Disable maintenance wake timers</span></div>
+                  <dl>
+                    <dt><span class="zh">作用</span><span class="en">Effect</span></dt>
+                    <dd><span class="zh">避免电脑在睡眠时被系统例行维护任务半夜唤醒</span><span class="en">Prevents routine Windows maintenance from waking the PC during sleep</span></dd>
+                    <dt><span class="zh">风险</span><span class="en">Risk</span></dt>
+                    <dd><span class="zh">低 · 维护顺延至开机空闲时</span><span class="en">Low · runs next idle session</span></dd>
+                    <dt><span class="zh">恢复</span><span class="en">Undo</span></dt>
+                    <dd><span class="zh">一键恢复默认电源与计划策略</span><span class="en">Restores default power &amp; task policy</span></dd>
+                  </dl>
+                  <div class="tags">
+                    <span class="st st-ok"><i></i><span class="zh">已读取当前值</span><span class="en">Current value read</span></span>
+                    <span class="st st-warn"><i></i><span class="zh">应用需管理员</span><span class="en">Admin to apply</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fvis" data-i="2">
+              <div class="card fvis-card">
+                <div class="pick">
+                  <div class="pick-row on"><i class="ck"><svg class="icon"><use href="#i-check"/></svg></i><span class="zh">关闭不需要的后台服务</span><span class="en">Disable unneeded services</span></div>
+                  <div class="pick-row on"><i class="ck"><svg class="icon"><use href="#i-check"/></svg></i><span class="zh">游戏时优先独显</span><span class="en">Prefer discrete GPU for games</span></div>
+                  <div class="pick-row"><i class="ck"></i><span class="zh">调整电源方案</span><span class="en">Adjust power plan</span></div>
+                  <div class="pick-row locked"><i class="ck lock"><svg class="icon"><use href="#i-lock"/></svg></i><span class="zh">待确认的项目 · 保持锁定</span><span class="en">Unconfirmed · stays locked</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="fvis" data-i="3">
+              <div class="card fvis-card">
+                <div class="seq">
+                  <div class="seq-row"><span class="st st-warn"><i></i><span class="zh">已提交</span><span class="en">Submitted</span></span><span class="seq-mut"><span class="zh">写入指令已发出</span><span class="en">write command sent</span></span></div>
+                  <div class="seq-arrow"><svg class="icon"><use href="#i-arrow"/></svg></div>
+                  <div class="seq-row"><span class="st st-read"><i></i><span class="zh">重新读取</span><span class="en">Re-reading</span></span><span class="seq-mut"><span class="zh">向系统核对当前真实值</span><span class="en">checking actual system value</span></span></div>
+                  <div class="seq-arrow"><svg class="icon"><use href="#i-arrow"/></svg></div>
+                  <div class="seq-row"><span class="st st-ok"><i></i><span class="zh">已生效</span><span class="en">Confirmed in effect</span></span><span class="seq-mut"><span class="zh">前后台数值一致</span><span class="en">values match</span></span></div>
+                  <p class="seq-note"><span class="zh">命令发出去只是第一步；只有重新读回系统状态、核对一致，才算真正落地。</span><span class="en">Sending a command is only step one — it counts only after the state is read back and verified.</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="fvis" data-i="4">
+              <div class="card fvis-card">
+                <div class="mini-tl">
+                  <div class="step done"><b><span class="zh">定位备份记录 #023</span><span class="en">Locate backup #023</span></b><span><span class="zh">记录修改前的原始注册表与服务状态</span><span class="en">Original registry and service values recorded before change</span></span></div>
+                  <div class="step done"><b><span class="zh">恢复前比对当前状态</span><span class="en">Re-read &amp; compare</span></b><span><span class="zh">只回退有差异的项，不覆盖无关改动</span><span class="en">Rolls back only changed items without touching unrelated settings</span></span></div>
+                  <div class="step"><b><span class="zh">已恢复并完成复核</span><span class="en">Restored &amp; verified</span></b><span><span class="zh">3 项设置已退回修改前状态</span><span class="en">3 settings returned to their original state</span></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-bar"><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATUS DEMO ============ -->
+<section class="section" id="status">
+  <div class="wrap status-wrap">
+    <div class="reveal">
+      <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">如实反馈</span><span class="en">Honest status</span></div>
+      <h2 class="h2">
+        <span class="zh">它不会把“已提交”<br>当成“已成功”。</span>
+        <span class="en">It never mistakes <em class="em">submitted</em> for <em class="em">succeeded</em>.</span>
+      </h2>
+      <p class="lead">
+        <span class="zh">系统里总有看不清的时候——权限不够、硬件不支持，或是某项策略被别的程序锁住了。遇到这些情况，它会老老实实标出来、写清缘由，绝不为了好看硬凑一个勾。</span>
+        <span class="en">Windows doesn't always answer cleanly — permissions fall short, hardware lacks support, or a policy is held by another program. When that happens, it says so plainly and locks the item rather than faking a green check.</span>
+      </p>
+      <div class="legend">
+        <div class="legend-row" data-k="ok"><span><span class="st st-ok"><i></i><span class="zh">已确认</span><span class="en">Confirmed</span></span></span><span><span class="zh">已读取到当前系统状态，可以继续判断是否符合目标。</span><span class="en">The current state was read; you can judge whether it matches the target.</span></span></div>
+        <div class="legend-row" data-k="read"><span><span class="st st-read"><i></i><span class="zh">读取中</span><span class="en">Reading</span></span></span><span><span class="zh">系统仍在返回状态，数量会随进度变化。</span><span class="en">The system is still reporting; counts change as it progresses.</span></span></div>
+        <div class="legend-row" data-k="warn"><span><span class="st st-warn"><i></i><span class="zh">待确认</span><span class="en">Pending</span></span></span><span><span class="zh">尚未得到可靠复核结果，不能当作已应用。</span><span class="en">No reliable verification yet — it is not treated as applied.</span></span></div>
+        <div class="legend-row" data-k="na"><span><span class="st st-na"><i></i><span class="zh">不可用</span><span class="en">Unavailable</span></span></span><span><span class="zh">权限、系统版本或硬件条件不满足，详情会写明原因。</span><span class="en">Permissions, Windows version or hardware don't allow it; details explain why.</span></span></div>
+      </div>
+      <p class="legend-note"><span class="zh">状态不是健康评分，也不制造焦虑；它只是如实告诉你：这一项现在看清楚了没有。</span><span class="en">Status isn't a health score and isn't there to scare you — it simply tells you how clearly the system could be read right now.</span></p>
+    </div>
+
+    <div class="reveal" style="--d:120ms">
+      <div class="panel status-demo">
+        <div class="panel-head">
+          <span class="ic"><svg class="icon"><use href="#i-monitor"/></svg></span>
+          <div>
+            <b><span class="zh">图形调度</span><span class="en">Graphics scheduling</span></b>
+            <span><span class="zh">控制图形调度、呈现方式和显示功能</span><span class="en">Graphics scheduling, presentation and display features</span></span>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm replay"><svg class="icon"><use href="#i-refresh"/></svg><span class="zh">重新读取</span><span class="en">Re-read</span></button>
+        </div>
+
+        <div class="demo-list">
+          <div class="demo-item" data-final="ok" data-delay="900" data-reason-zh="✓ WMI 正常 · 符合目标" data-reason-en="✓ WMI OK · Matches target">
+            <div>
+              <div class="name"><span class="zh">全局优先独显</span><span class="en">Prefer discrete GPU globally</span></div>
+              <div class="desc"><span class="zh">多显卡设备上可减少游戏误用核显的概率。</span><span class="en">On multi-GPU devices, reduces the chance of games using the integrated GPU.</span></div>
+            </div>
+            <div class="right">
+              <span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span>
+              <span class="st"></span>
+              <button type="button" class="why" aria-label="查看原因 Why" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg>
+                <span class="tip"><b><span class="zh">已确认</span><span class="en">Confirmed</span></b><span class="zh">已读取到当前系统状态，且符合目标设置。</span><span class="en">The current state was read and matches the target setting.</span></span>
+              </button>
+              <span class="toggle"></span>
+            </div>
+          </div>
+
+          <div class="demo-item" data-final="na" data-delay="1500" data-reason-zh="— 当前硬件不支持此调度" data-reason-en="— Not supported on this hardware">
+            <div>
+              <div class="name"><span class="zh">开启硬件加速 GPU 调度</span><span class="en">Hardware-accelerated GPU scheduling</span></div>
+              <div class="desc"><span class="zh">GPU 直接管理调度队列，在受支持驱动上可能改善帧时间和输入响应。</span><span class="en">The GPU manages its own scheduling queue; on supported drivers it may improve frame time and input response.</span></div>
+            </div>
+            <div class="right">
+              <span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span>
+              <span class="st"></span>
+              <button type="button" class="why" aria-label="查看原因 Why" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg>
+                <span class="tip"><b><span class="zh">不可用</span><span class="en">Unavailable</span></b><span class="zh">当前权限、系统版本、硬件或依赖条件不满足。该项目不会参与应用。</span><span class="en">Permissions, Windows version, hardware or dependencies don't allow it. This item won't be applied.</span></span>
+              </button>
+              <span class="toggle"></span>
+            </div>
+          </div>
+
+          <div class="demo-item" data-final="warn" data-delay="2100" data-reason-zh="! 需管理员权限提权复核" data-reason-en="! Elevation needed to verify">
+            <div>
+              <div class="name"><span class="zh">提升游戏 GPU 优先级</span><span class="en">Raise game GPU priority</span></div>
+              <div class="desc"><span class="zh">可能提升游戏图形任务优先级和帧时间一致性。</span><span class="en">May raise the priority of game graphics tasks and frame-time consistency.</span></div>
+            </div>
+            <div class="right">
+              <span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span>
+              <span class="st"></span>
+              <button type="button" class="why" aria-label="查看原因 Why" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg>
+                <span class="tip"><b><span class="zh">待确认</span><span class="en">Pending</span></b><span class="zh">尚未得到可靠复核结果，不能当作已应用。项目保持锁定，不会执行系统修改。</span><span class="en">No reliable verification yet, so it is not treated as applied. The item stays locked and nothing is changed.</span></span>
+              </button>
+              <span class="toggle"></span>
+            </div>
+          </div>
+
+          <div class="demo-item" data-final="ok" data-delay="3300" data-reason-zh="✓ 策略已写入 · 已二次复核" data-reason-en="✓ Policy written &amp; re-verified">
+            <div>
+              <div class="name"><span class="zh">设置 GPU SFIO 优先级</span><span class="en">Set GPU SFIO priority</span></div>
+              <div class="desc"><span class="zh">让对应 Windows 策略或功能按目标值运行，减少后台行为、提示或资源占用。</span><span class="en">Runs the related Windows policy or feature at its target value, reducing background activity, prompts or resource use.</span></div>
+            </div>
+            <div class="right">
+              <span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span>
+              <span class="st"></span>
+              <button type="button" class="why" aria-label="查看原因 Why" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg>
+                <span class="tip"><b><span class="zh">已确认</span><span class="en">Confirmed</span></b><span class="zh">读取耗时较长，但最终拿到了可靠状态。</span><span class="en">Reading took longer, but a reliable state was obtained in the end.</span></span>
+              </button>
+              <span class="toggle"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-foot">
+          <span><span class="zh">已确认</span><span class="en">Confirmed</span> <b data-count="ok">0/4</b></span>
+          <span class="sep"></span>
+          <span><span class="zh">待确认</span><span class="en">Pending</span> <b data-count="warn">0</b></span>
+          <span class="sep"></span>
+          <span><span class="zh">不可用</span><span class="en">Unavailable</span> <b data-count="na">0</b></span>
+          <span class="sep"></span>
+          <span><span class="zh">读取中</span><span class="en">Reading</span> <b data-count="read">4</b></span>
+        </div>
+      </div>
+      <p class="demo-note">
+        <span class="zh">这是个交互示意，不是真的软件 · 名称和文案来自真实界面</span>
+        <span class="en">A live illustration, not the real app · names and text come from the actual interface</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODULES ============ -->
+<section class="section flush-top" id="modules">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">功能模块</span><span class="en">Modules</span></div>
+      <h2 class="h2"><span class="zh">14 个模块与 7 项工具，按需打开。</span><span class="en">14 modules and 7 tools. Open only what you need.</span></h2>
+      <p class="lead">
+        <span class="zh">每一块都是独立的。今天只想看一眼显卡调度，或是清理几个用不上的自带应用，就只打开那一页——不必一次处理全部，也不用把所有名词都背下来。</span>
+        <span class="en">Every module stands on its own. If all you want today is to check graphics scheduling or clean up a few built-in apps, open just that page — no need to touch or memorize the rest.</span>
+      </p>
+    </div>
+
+    <div class="mod-groups">
+      <div class="card mod-group reveal">
+        <div class="mod-group-head"><h3><span class="zh">游戏与性能</span><span class="en">Games &amp; performance</span></h3><span>08</span></div>
+        <div class="mod-grid">
+          <div class="mod"><svg class="icon"><use href="#i-game"/></svg><b><span class="zh">游戏优化中心</span><span class="en">Game Center</span></b><small><span class="zh">游戏相关设置与诊断工具</span><span class="en">Game settings &amp; diagnostics</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-memory"/></svg><b><span class="zh">内存优化</span><span class="en">Memory</span></b><small><span class="zh">内存相关设置</span><span class="en">Memory settings</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-audio"/></svg><b><span class="zh">音频优化</span><span class="en">Audio</span></b><small><span class="zh">音频相关设置</span><span class="en">Audio settings</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-gauge"/></svg><b><span class="zh">性能加速</span><span class="en">Performance</span></b><small><span class="zh">性能与调度设置</span><span class="en">Performance &amp; scheduling</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-cpu"/></svg><b><span class="zh">CPU 优化</span><span class="en">CPU</span></b><small><span class="zh">处理器相关设置</span><span class="en">Processor settings</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-monitor"/></svg><b><span class="zh">显卡优化</span><span class="en">Graphics</span></b><small><span class="zh">图形调度与显示</span><span class="en">Scheduling &amp; display</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-network"/></svg><b><span class="zh">网络优化</span><span class="en">Network</span></b><small><span class="zh">网络相关设置</span><span class="en">Network settings</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-mouse"/></svg><b><span class="zh">外设优化</span><span class="en">Peripherals</span></b><small><span class="zh">键鼠等外设设置</span><span class="en">Mouse, keyboard &amp; more</span></small></div>
+        </div>
+      </div>
+
+      <div class="card mod-group win reveal" style="--d:100ms">
+        <div class="mod-group-head"><h3><span class="zh">Windows 设置</span><span class="en">Windows settings</span></h3><span>06</span></div>
+        <div class="mod-grid">
+          <div class="mod"><svg class="icon"><use href="#i-shield"/></svg><b><span class="zh">隐私保护</span><span class="en">Privacy</span></b><small><span class="zh">隐私相关系统设置</span><span class="en">Privacy settings</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-sliders"/></svg><b><span class="zh">系统调校</span><span class="en">System tuning</span></b><small><span class="zh">系统行为调校</span><span class="en">System behavior</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-layout"/></svg><b><span class="zh">桌面体验</span><span class="en">Desktop</span></b><small><span class="zh">桌面与界面体验</span><span class="en">Desktop &amp; shell</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-calendar"/></svg><b><span class="zh">任务调度</span><span class="en">Scheduled tasks</span></b><small><span class="zh">计划任务管理</span><span class="en">Task Scheduler items</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-gear"/></svg><b><span class="zh">系统服务</span><span class="en">Services</span></b><small><span class="zh">Windows 服务</span><span class="en">Windows services</span></small></div>
+          <div class="mod"><svg class="icon"><use href="#i-trash"/></svg><b><span class="zh">系统清理</span><span class="en">Cleanup</span></b><small><span class="zh">系统与 Appx 应用清理</span><span class="en">System &amp; Appx cleanup</span></small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tools reveal">
+      <h3><span class="zh">工具与恢复</span><span class="en">Tools &amp; recovery</span></h3>
+      <span class="tool"><svg class="icon"><use href="#i-chip"/></svg><span class="zh">硬件信息</span><span class="en">Hardware info</span></span>
+      <span class="tool"><svg class="icon"><use href="#i-pulse"/></svg><span class="zh">网络测试</span><span class="en">Network test</span></span>
+      <span class="tool"><svg class="icon"><use href="#i-backup"/></svg><span class="zh">软件备份</span><span class="en">Backups</span></span>
+      <span class="tool"><svg class="icon"><use href="#i-flag"/></svg><span class="zh">系统还原点</span><span class="en">Restore points</span></span>
+      <span class="tool"><svg class="icon"><use href="#i-wrench"/></svg><span class="zh">修复中心</span><span class="en">Repair center</span></span>
+      <span class="tool"><svg class="icon"><use href="#i-cores"/></svg><span class="zh">CPU 核心管理</span><span class="en">CPU cores</span></span>
+      <span class="tool"><svg class="icon"><use href="#i-power"/></svg><span class="zh">电源方案编辑</span><span class="en">Power plans</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="section live flush-top" id="interface">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">界面预览</span><span class="en">Interface preview</span></div>
+      <h2 class="h2"><span class="zh">先在网页里，试着点点看。</span><span class="en">Take the interface for a spin right here.</span></h2>
+      <p class="lead"><span class="zh">这是宇奇引擎早期版本的全尺寸 Web 界面视觉稿。虽然现在发布版的界面已经迭代，但交互是完整的——你可以直接在下面切换左侧模块，或者点开右上角的通知抽屉试试。想看现在的正式软件长什么样，直接下载最准。</span><span class="en">This is the full-size Web UI draft from an early version of Yuqi Engine. The shipped app has evolved since, but the interaction flow is all here — click through the sidebar modules below or open the notification drawer. To see the software as it ships today, download the current build.</span></p>
+    </div>
+
+    <div class="live-stage reveal" style="--d:120ms">
+      <div class="live-frame">
+        <div class="app-embed" data-embed="interface">
+          <iframe data-src="app/?embed=1" title="宇奇引擎早期版本界面视觉稿 · 可交互预览 Yuqi Engine early UI preview" tabindex="-1"></iframe>
+          <div class="embed-live" aria-hidden="true"><i></i><span class="zh">界面可直接点击体验</span><span class="en">Interactive — click around</span></div>
+          <picture>
+            <source type="image/webp" srcset="assets/img/app-preview.webp">
+            <img class="fallback-shot" src="assets/img/app-preview.png" width="1280" height="860" alt="宇奇引擎早期版本界面视觉稿 Yuqi Engine early UI visual" loading="lazy">
+          </picture>
+        </div>
+      </div>
+      <div class="live-foot">
+        <span class="muted"><span class="zh">早期版本界面视觉稿（可直接点击左侧模块体验） · 当前发布版界面以软件为准</span><span class="en">Early-version interactive UI visual (click the sidebar to explore) · shipped UI follows the release build</span></span>
+        <div class="live-actions">
+          <a class="btn btn-ghost btn-sm" href="app/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-arrowUpRight"/></svg><span class="zh">全屏打开</span><span class="en">Open fullscreen</span></a>
+          <a class="btn btn-primary btn-sm" href="download.html"><svg class="icon"><use href="#i-download"/></svg><span class="zh">下载当前版本</span><span class="en">Download current release</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAFETY ============ -->
+<section class="section" id="safety">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">安全与恢复</span><span class="en">Safety &amp; recovery</span></div>
+      <h2 class="h2"><span class="zh">在动手之前，先留好退路。</span><span class="en">Before changing anything, keep a way back.</span></h2>
+    </div>
+    <div class="safety-grid">
+      <article class="card safe reveal" style="--d:0ms">
+        <div class="ic"><svg class="icon"><use href="#i-backup"/></svg></div>
+        <h3><span class="zh">软件备份</span><span class="en">Software backup</span></h3>
+        <p><span class="zh">修改前把涉及的设置、注册表项和恢复凭据存好；觉得不对劲，随时按原路退回。</span><span class="en">Saves the relevant settings, registry keys and recovery evidence before changes, so individual items can be rolled back cleanly.</span></p>
+      </article>
+      <article class="card safe reveal" style="--d:80ms">
+        <div class="ic"><svg class="icon"><use href="#i-flag"/></svg></div>
+        <h3><span class="zh">系统还原点</span><span class="en">Restore points</span></h3>
+        <p><span class="zh">可以直接调用 Windows 创建系统还原点，在软件备份之外再垫一层系统级兜底。</span><span class="en">Create a Windows system restore point right from the app — a system-level safety net beneath software backups.</span></p>
+      </article>
+      <article class="card safe reveal" style="--d:160ms">
+        <div class="ic"><svg class="icon"><use href="#i-box"/></svg></div>
+        <h3><span class="zh">本地问题包 · 零遥测</span><span class="en">Local diagnostics · no telemetry</span></h3>
+        <p><span class="zh">需要排查故障时，只在本地打包日志并自动隐去用户名与路径。软件日常不联网上报数据，问题包也绝不自动上传。</span><span class="en">Troubleshooting logs are zipped locally with your username and paths masked. The app sends no background telemetry and never uploads anything on its own.</span></p>
+      </article>
+      <article class="card safe reveal" style="--d:240ms">
+        <div class="ic"><svg class="icon"><use href="#i-shieldCheck"/></svg></div>
+        <h3><span class="zh">官方渠道与校验</span><span class="en">Official sources</span></h3>
+        <p><span class="zh">仅在 GitHub Releases 与官方夸克网盘分发，附有 SHA&#8209;256 指纹供你核对文件是否原封未动。</span><span class="en">Distributed only via GitHub Releases and the official Quark Drive mirror, with SHA&#8209;256 hashes so you can verify the file is untouched.</span></p>
+      </article>
+    </div>
+    <div class="fineprint reveal">
+      <svg class="icon"><use href="#i-alert"/></svg>
+      <ul class="fineprint-list">
+        <li><span class="zh"><b>关于备份边界：</b>软件备份只记录与优化项相关的系统设置和注册表值，不是完整系统镜像，也不包含个人文档、照片或游戏存档，重要私人文件请另行备份。</span><span class="en"><b>Backup scope:</b> Software backups only record settings and registry values tied to tuning items — they are not a full disk image and do not cover personal files, photos or game saves.</span></li>
+        <li><span class="zh"><b>关于系统拦截提示：</b>个人免费项目尚未购买商业代码签名证书，首次打开时 Windows SmartScreen 可能会弹出「未知发布者」提醒；核对下载页的 SHA&#8209;256 一致即可放心运行。</span><span class="en"><b>SmartScreen prompt:</b> As a free indie project without a paid code-signing certificate, Windows may show an "Unknown publisher" prompt on first launch. Verify the SHA&#8209;256 hash on the download page to be sure it's genuine.</span></li>
+        <li><span class="zh"><b>关于实际效果：</b>每台电脑的硬件与游戏环境不同，宇奇引擎不承诺任何固定的 FPS 或延迟提升数字。建议每次只改几项，用你自己的游戏实测，只留下真正有帮助的调整。</span><span class="en"><b>Real-world results:</b> Every machine and game behaves differently. Yuqi Engine promises no fixed FPS or latency numbers — change a few items at a time, test in your own games, and keep only what genuinely helps.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIT ============ -->
+<section class="section flush-top" id="fit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">先说实话</span><span class="en">Honest first</span></div>
+      <h2 class="h2"><span class="zh">它不适合所有人。</span><span class="en">It's not for everyone.</span></h2>
+      <p class="lead"><span class="zh">在点下载之前，花十秒钟看看它是不是你想找的那件工具。</span><span class="en">Before you download, take ten seconds to see if it's the kind of tool you're actually looking for.</span></p>
+    </div>
+    <div class="fit-grid">
+      <article class="card fit-card fit-yes reveal">
+        <div class="fit-top">
+          <h3><svg class="icon"><use href="#i-checkCircle"/></svg><span class="zh">如果你是……</span><span class="en">It's for you if you…</span></h3>
+          <span class="fit-badge ok"><span class="zh">适合你</span><span class="en">Good fit</span></span>
+        </div>
+        <ul>
+          <li><svg class="icon"><use href="#i-check"/></svg><span class="zh">想知道电脑现在到底是什么状态，不想靠猜</span><span class="en">want to see your machine's real state rather than guessing</span></li>
+          <li><svg class="icon"><use href="#i-check"/></svg><span class="zh">喜欢自己拿主意调 Windows，改每一项都图个明白</span><span class="en">prefer tuning Windows on your own terms, knowing what each switch does</span></li>
+          <li><svg class="icon"><use href="#i-check"/></svg><span class="zh">受够了说不清改了什么的“一键优化”</span><span class="en">are tired of "one-click boosters" that never explain what they changed</span></li>
+        </ul>
+        <p class="fit-verdict"><span class="zh">那它会很趁手。</span><span class="en">Then you'll feel right at home.</span></p>
+      </article>
+      <article class="card fit-card fit-no reveal" style="--d:100ms">
+        <div class="fit-top">
+          <h3><svg class="icon"><use href="#i-info"/></svg><span class="zh">如果你期待……</span><span class="en">Skip it if you want…</span></h3>
+          <span class="fit-badge"><span class="zh">未必适合</span><span class="en">Maybe not</span></span>
+        </div>
+        <ul>
+          <li><svg class="icon"><use href="#i-close"/></svg><span class="zh">点一下按钮，电脑就自动变快</span><span class="en">a single button that magically makes the PC faster</span></li>
+          <li><svg class="icon"><use href="#i-close"/></svg><span class="zh">看到“帧率提升 XX%”之类的漂亮承诺</span><span class="en">bold promises like "+60% FPS guaranteed"</span></li>
+          <li><svg class="icon"><use href="#i-close"/></svg><span class="zh">不用看说明，让软件替你把所有决定做完</span><span class="en">the software to make every decision without asking you</span></li>
+        </ul>
+        <p class="fit-verdict"><span class="zh">那它可能不适合你。</span><span class="en">Then it's probably not what you want.</span></p>
+      </article>
+    </div>
+    <p class="fit-note reveal"><svg class="icon"><use href="#i-info"/></svg><span><span class="zh">还有一类情况要提前说：装的是精简版镜像、或系统已经被深度调校工具改过的，很多接口本身就被移除了，大片项目会读不到或显示「不可用」——这种状态不适合再批量改动，逐项看清说明再动手。</span><span class="en">One more case worth flagging: systems installed from debloated images or already heavily tuned have interfaces removed outright, so many items will read as "Unavailable" — don't bulk-apply there; check each item's notes before changing it.</span></span></p>
+  </div>
+</section>
+
+<!-- ============ DOWNLOAD ============ -->
+<section class="section flush-top" id="download">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:28px">
+      <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">下载</span><span class="en">Download</span></div>
+      <h2 class="h2"><span class="zh">现在下载，先从检测开始。</span><span class="en">Download it. Start by inspecting.</span></h2>
+      <p class="lead"><span class="zh">永久免费。两个版本都挂在 GitHub Releases 上；国内连 GitHub 慢的话，直接走夸克网盘。</span><span class="en">Free forever. Both builds live on GitHub Releases, with a Quark Drive mirror if GitHub is slow where you are.</span></p>
+    </div>
+    <p class="dl-pick reveal"><span class="zh"><b>两个版本选哪个？</b>拿不准就下左边的 <b data-rel-tag>v0.1.4-preview</b>——体积轻、自带运行库，打开就能用普通权限做检测；右边的 <b>v0.1.2</b> 是旧工程丢失前功能最全的一版，但体量大，只建议熟悉系统还原或重装的老手体验。</span><span class="en"><b>Which build should I pick?</b> If in doubt, grab <b data-rel-tag>v0.1.4-preview</b> on the left — lighter, self-contained, and ready to inspect without admin rights. <b>v0.1.2</b> on the right is the fullest pre-loss build, best left to users comfortable with System Restore or troubleshooting.</span></p>
+
+    <div class="dl-grid">
+      <article class="card ver primary reveal">
+        <i class="beam" aria-hidden="true"></i>
+        <div class="ver-top"><span class="ver-tag"><span class="zh">最新预览版 · 推荐</span><span class="en">Latest preview · Recommended</span></span><span class="ver-date" data-rel-date>2026-09-15</span></div>
+        <h3 data-rel-tag>v0.1.4-preview</h3>
+        <p class="desc"><span class="zh">在幸存公开的源码上继续打磨的版本：修复了“明明已是管理员却仍提示权限不足”以及安全检测页偶发报错两处问题，日常运行更稳。</span><span class="en">Continued on the surviving public source: fixes the false admin-rights prompt when already elevated and a crash on the security check page.</span></p>
+        <ul>
+          <li><svg class="icon"><use href="#i-check"/></svg><span class="zh">内置 .NET 8 Desktop Runtime，无需另装运行库</span><span class="en">Ships with .NET 8 Desktop Runtime — nothing else to install</span></li>
+          <li><svg class="icon"><use href="#i-check"/></svg><span class="zh">只做检测普通权限即可打开，应用修改时才按需请求管理员</span><span class="en">Opens for inspection under standard user rights; asks for admin only when applying changes</span></li>
+        </ul>
+        <div class="ver-actions">
+          <a class="file-btn main" data-rel-setup href="https://github.com/ZYY817/YuqiEngine/releases/download/v0.1.4-preview/YuqiEngine-v0.1.4-preview-win-x64-setup.exe">
+            <svg class="icon"><use href="#i-download"/></svg>
+            <span><b><span class="zh">安装版</span><span class="en">Installer</span></b><small>setup.exe</small></span>
+            <span class="size" data-rel-setup-size>94.8 MB</span>
+          </a>
+          <a class="file-btn" data-rel-zip href="https://github.com/ZYY817/YuqiEngine/releases/download/v0.1.4-preview/YuqiEngine-v0.1.4-preview-win-x64.zip">
+            <svg class="icon"><use href="#i-fileZip"/></svg>
+            <span><b><span class="zh">便携版</span><span class="en">Portable</span></b><small>.zip</small></span>
+            <span class="size" data-rel-zip-size>129.6 MB</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="card ver reveal" style="--d:100ms">
+        <div class="ver-top"><span class="ver-tag"><span class="zh">完整体验版</span><span class="en">Full preview</span></span><span class="ver-date">2026-08-09</span></div>
+        <h3>v0.1.2</h3>
+        <p class="desc"><span class="zh">完整工程误删前的最后一个公开版本，中英文双语，包含更多历史模块与工具，打包体积较大。</span><span class="en">The last public build before the full project was lost. Bilingual, carries more historical modules and tools, and larger in size.</span></p>
+        <ul>
+          <li class="warn"><svg class="icon"><use href="#i-alert"/></svg><span class="zh">官方说明：仅建议熟悉装系统、系统还原或故障排查的用户体验</span><span class="en">Official note: recommended only for users comfortable with System Restore, reinstalling Windows or troubleshooting</span></li>
+          <li><svg class="icon"><use href="#i-check"/></svg><span class="zh">Release 页面附带 SHA&#8209;256 校验文件</span><span class="en">SHA&#8209;256 checksum files included on the Release page</span></li>
+        </ul>
+        <div class="ver-actions">
+          <a class="file-btn" href="https://github.com/ZYY817/YuqiEngine/releases/download/v0.1.2/YuqiEngine-v0.1.2-Setup-ZH-EN.exe">
+            <svg class="icon"><use href="#i-download"/></svg>
+            <span><b><span class="zh">安装版</span><span class="en">Installer</span></b><small>Setup-ZH-EN.exe</small></span>
+            <span class="size">531.2 MB</span>
+          </a>
+          <a class="file-btn" href="https://github.com/ZYY817/YuqiEngine/releases/download/v0.1.2/YuqiEngine-v0.1.2-Portable-ZH-EN.zip">
+            <svg class="icon"><use href="#i-fileZip"/></svg>
+            <span><b><span class="zh">便携版</span><span class="en">Portable</span></b><small>Portable-ZH-EN.zip</small></span>
+            <span class="size">531.6 MB</span>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <div class="dl-foot reveal">
+      <span>
+        <span class="zh">国内下载慢？直接走 <a href="https://pan.quark.cn/s/432600ae9d8d" target="_blank" rel="noopener"><b>夸克网盘备用下载 ↗</b></a> · SHA&#8209;256 校验命令与首次运行说明见 <a href="download.html">下载详情页</a></span>
+        <span class="en">Slow download? Use the <a href="https://pan.quark.cn/s/432600ae9d8d" target="_blank" rel="noopener"><b>Quark Drive mirror ↗</b></a> · SHA&#8209;256 verification commands and first-run notes on the <a href="download.html">download page</a></span>
+      </span>
+      <span class="req"><span>Windows 10 1809+ / 11</span><span>x64</span><span>RAM ≥ 4 GB</span><span>Disk ≥ 1 GB</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUTHOR ============ -->
+<section id="author" style="padding-bottom:clamp(80px,10vw,128px)">
+  <div class="wrap">
+    <div class="author reveal">
+      <div class="grid-bg"></div>
+      <img class="author-logo" src="assets/img/logo-light.png" alt="">
+      <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">幕后</span><span class="en">Behind it</span></div>
+      <h2 class="h2"><span class="zh">一个人，在下班后慢慢磨出来的。</span><span class="en">Built by one person, in the hours after work.</span></h2>
+      <div class="author-body">
+        <p>
+          <span class="zh">宇奇引擎是智宇在下班后一点点做出来的作品。坦白讲，它是借着 AI 的手长出来的——代码、界面，连同你眼前读到的许多文字，初稿大多出自 AI；但要做什么、不做什么，在一台台真机上反复跑测、挑出不对劲的地方推倒重来，每一个决定和每一处取舍，背后都是一个具体的人在把关和兜底。</span>
+          <span class="en">Yuqi Engine took shape in Zhiyu's evenings after work. Candidly, it grew through AI — much of the code, interface and even the first drafts of these words came from AI output. Yet deciding what to build and what to refuse, testing on real machines, catching what felt off and throwing it back for another pass — every call and every trade-off has a real person standing behind it.</span>
+        </p>
+        <p>
+          <span class="zh">2026 年 2 月底，第一个略显青涩的内测版在自己的频道里发了出来，后来一路长到了功能最齐备的 v0.1.2。可惜那年 8 月的一次误删，让最完整的那套工程源文件没能留住——翻遍硬盘，只找回最早内测版时期的底子。短暂懊恼之后，他把幸存的源码整理公开，又在旧底子上重新往前走，才有了现在的 <span data-rel-tag>v0.1.4-preview</span>。</span>
+          <span class="en">Late in February 2026, a rough first alpha went out on his channel and steadily grew into v0.1.2, the most complete build. Then in August, an accidental deletion took the entire full project with it — only the earliest alpha source survived on disk. After the dust settled, he cleaned up what remained, published it openly, and kept building forward from that early foundation to ship <span data-rel-tag>v0.1.4-preview</span>.</span>
+        </p>
+      </div>
+      <div class="author-sign">
+        <span class="name"><span class="zh">— 智宇</span><span class="en">— Zhiyu</span></span>
+        <a class="social" href="https://www.douyin.com/user/MS4wLjABAAAAtudWpqXWwZXYdkSk0YT36zpHEPiS2YuFsQL21ihiUxI" target="_blank" rel="noopener"><span class="zh">抖音</span><span class="en">Douyin</span><svg class="icon"><use href="#i-arrowUpRight"/></svg></a>
+        <a class="social" href="https://space.bilibili.com/41173761" target="_blank" rel="noopener">Bilibili<svg class="icon"><use href="#i-arrowUpRight"/></svg></a>
+        <a class="social" href="https://github.com/ZYY817" target="_blank" rel="noopener">GitHub<svg class="icon"><use href="#i-arrowUpRight"/></svg></a>
+        <a class="btn btn-ghost btn-sm" href="story.html"><span class="zh">阅读完整故事</span><span class="en">Read the full story</span><svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/img/logo-dark.png" alt=""><span>宇奇引擎 <small>Yuqi Engine</small></span></a>
+        <p class="footer-motto"><span class="zh">先理解，再选择；可验证，也可恢复。</span><span class="en">Understand first, then choose. Verifiable, and reversible.</span></p>
+      </div>
+      <div>
+        <h4><span class="zh">产品</span><span class="en">Product</span></h4>
+        <ul>
+          <li><a href="#features"><span class="zh">设计初衷</span><span class="en">Philosophy</span></a></li>
+          <li><a href="#modules"><span class="zh">功能模块</span><span class="en">Modules</span></a></li>
+          <li><a href="#safety"><span class="zh">安全与恢复</span><span class="en">Safety</span></a></li>
+          <li><a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a></li>
+          <li><a href="guide.html"><span class="zh">使用指南</span><span class="en">Guide</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="zh">项目</span><span class="en">Project</span></h4>
+        <ul>
+          <li><a href="story.html"><span class="zh">项目故事</span><span class="en">Story</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener"><span class="zh">源码</span><span class="en">Source code</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine/issues" target="_blank" rel="noopener"><span class="zh">问题反馈</span><span class="en">Issues</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine/releases" target="_blank" rel="noopener"><span class="zh">版本发布</span><span class="en">Releases</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="zh">官方渠道</span><span class="en">Official channels</span></h4>
+        <ul>
+          <li><a href="https://www.douyin.com/user/MS4wLjABAAAAtudWpqXWwZXYdkSk0YT36zpHEPiS2YuFsQL21ihiUxI" target="_blank" rel="noopener"><span class="zh">抖音 · 智宇</span><span class="en">Douyin · 智宇</span></a></li>
+          <li><a href="https://space.bilibili.com/41173761" target="_blank" rel="noopener">Bilibili · 智宇丶817</a></li>
+          <li><a href="https://github.com/ZYY817" target="_blank" rel="noopener">GitHub · ZYY817</a></li>
+          <li><a href="https://pan.quark.cn/s/432600ae9d8d" target="_blank" rel="noopener"><span class="zh">夸克网盘（备用下载）</span><span class="en">Quark Drive (mirror)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> <span class="zh">宇奇引擎 · 由智宇与 AI 协作开发</span><span class="en">Yuqi Engine · Built by Zhiyu with AI collaboration</span></span>
+      <span class="footer-bottom-right">
+        <span><span class="zh">永久免费 · 禁止倒卖、付费分发和商业使用</span><span class="en">Free forever · No resale, paid distribution or commercial use</span></span>
+        <a class="to-top" href="#" id="toTop"><span class="zh">回到顶部</span><span class="en">Back to top</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

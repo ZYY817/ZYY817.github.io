@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-title-zh="使用指南 · 宇奇引擎 Yuqi Engine" data-title-en="Guide · Yuqi Engine">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>使用指南 · 宇奇引擎 Yuqi Engine</title>
+<meta name="description" content="宇奇引擎使用指南：使用前必读、状态含义、问题包与常见问题。先理解，再选择；可验证，也可恢复。">
+<meta name="theme-color" content="#f6f8f8">
+<meta property="og:title" content="使用指南 · 宇奇引擎 Yuqi Engine">
+<meta property="og:description" content="使用前必读、状态含义、问题包与常见问题。先理解，再选择；可验证，也可恢复。">
+<meta property="og:image" content="assets/img/overview-v0.1.1.png">
+<link rel="icon" type="image/png" href="assets/img/logo-dark.png">
+<script>(function(){var l;try{l=localStorage.getItem("yuqi-lang")}catch(e){}if(l!=="zh"&&l!=="en"){l=(navigator.language||"zh").toLowerCase().indexOf("zh")===0?"zh":"en"}document.documentElement.setAttribute("data-lang",l)})();</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/icons.js"></script>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="宇奇引擎 Yuqi Engine">
+      <img src="assets/img/logo-dark.png" alt="">
+      <span>宇奇引擎 <small>Yuqi Engine</small></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="index.html#features"><span class="zh">理念</span><span class="en">Philosophy</span></a>
+      <a href="index.html#how"><span class="zh">工作方式</span><span class="en">How it works</span></a>
+      <a href="index.html#modules"><span class="zh">模块</span><span class="en">Modules</span></a>
+      <a href="index.html#safety"><span class="zh">安全</span><span class="en">Safety</span></a>
+      <a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a>
+      <a class="active" href="guide.html" aria-current="page"><span class="zh">使用指南</span><span class="en">Guide</span></a>
+      <a href="story.html"><span class="zh">项目故事</span><span class="en">Story</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-set-lang="zh">中</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="icon-btn" href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon fill"><use href="#i-github"/></svg></a>
+      <a class="btn btn-primary btn-sm nav-cta" href="download.html"><span class="zh">免费下载</span><span class="en">Download</span></a>
+      <button class="icon-btn menu-btn" type="button" aria-label="菜单 Menu" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <a href="index.html#features"><span class="zh">理念</span><span class="en">Philosophy</span></a>
+  <a href="index.html#how"><span class="zh">工作方式</span><span class="en">How it works</span></a>
+  <a href="index.html#modules"><span class="zh">模块</span><span class="en">Modules</span></a>
+  <a href="index.html#safety"><span class="zh">安全</span><span class="en">Safety</span></a>
+  <a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a>
+  <a class="active" href="guide.html"><span class="zh">使用指南</span><span class="en">Guide</span></a>
+  <a href="story.html"><span class="zh">项目故事</span><span class="en">Story</span></a>
+  <a class="btn btn-primary" href="download.html"><span class="zh">免费下载</span><span class="en">Download for free</span></a>
+</div>
+
+<main>
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="grid-bg"></div>
+  <div class="wrap">
+    <div class="kicker reveal"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">使用指南</span><span class="en">Guide</span></div>
+    <h1 class="h1 reveal" style="--d:80ms"><span class="zh">动手修改之前，<br>先看这一页。</span><span class="en">Before you change anything,<br>read this page.</span></h1>
+    <p class="lead reveal" style="--d:160ms"><span class="zh">系统优化改的是底层设置，有用，也有代价。花五分钟读完，能避开绝大多数问题。</span><span class="en">System tuning touches low-level settings — useful, but not free of risk. Five minutes here prevents most problems.</span></p>
+  </div>
+</section>
+
+<div class="page-body">
+<div class="wrap">
+
+<!-- ============ BEFORE ============ -->
+<section class="block">
+  <div class="block-title reveal">
+    <span class="n">01</span>
+    <h2><span class="zh">使用前，四步原则</span><span class="en">Before you start: four principles</span></h2>
+  </div>
+  <div class="steps">
+    <div class="step-card reveal">
+      <h3><span class="zh">01. 创建系统还原点</span><span class="en">01. Create a restore point</span></h3>
+      <p><span class="zh">软件内置「系统还原点」工具，先建一个。这是修改失败时最直接的退路。</span><span class="en">Use the built-in “System Restore Point” tool first. It's the most direct way back if something goes wrong.</span></p>
+    </div>
+    <div class="step-card reveal" style="--d:80ms">
+      <h3><span class="zh">02. 备份重要个人文件</span><span class="en">02. Back up personal files</span></h3>
+      <p><span class="zh">还原点保护的是底层系统设置，不包含个人文档、照片与存档。重要数据请自行备份到移动硬盘或网盘。</span><span class="en">A restore point covers Windows system settings, not personal files or saves. Back those up separately.</span></p>
+    </div>
+    <div class="step-card reveal" style="--d:160ms">
+      <h3><span class="zh">03. 首次启动只看不点</span><span class="en">03. Inspect before applying</span></h3>
+      <p><span class="zh">首次打开先完整运行一次检测。只做检测绝不改动任何设置，先看清每一项的真实状态。</span><span class="en">Run inspection first. It touches nothing — see the current state of each item and what the app reports.</span></p>
+    </div>
+    <div class="step-card reveal" style="--d:240ms">
+      <h3><span class="zh">04. 只勾选你看得懂的项</span><span class="en">04. Only check what you understand</span></h3>
+      <p><span class="zh">每一项都写明作用、风险与恢复方式。拿不准、看不懂的项先不动，查清楚再决定。</span><span class="en">Every item spells out purpose, risk and undo path. Leave anything unclear unchecked until verified.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATUS ============ -->
+<section class="block">
+  <div class="block-title reveal">
+    <span class="n">02</span>
+    <h2><span class="zh">读懂状态标签</span><span class="en">Reading the status labels</span></h2>
+  </div>
+  <p class="prose reveal" style="font-weight: 600; color: var(--ink);">
+    <span class="zh">状态不是评分，它只是当前信息的完整程度。宇奇引擎从不给电脑打 90 分或 60 分，只客观陈述每一项是知道、不知道、还是不能动。</span>
+    <span class="en">Status isn't a score — it's how complete the information is right now. Yuqi Engine never grades your PC with arbitrary scores, but truthfully reports whether each item is known, unknown, or locked.</span>
+  </p>
+  <table class="table reveal">
+    <tr><th><span class="zh">状态</span><span class="en">Status</span></th><th><span class="zh">含义</span><span class="en">Meaning</span></th><th><span class="zh">你该怎么做</span><span class="en">What to do</span></th></tr>
+    <tr>
+      <td><span class="st st-ok"><i></i><span class="zh">已确认</span><span class="en">Confirmed</span></span></td>
+      <td><span class="zh">当前状态已读取到，作用与风险清晰，可判断是否符合目标</span><span class="en">Current state read successfully — can be evaluated</span></td>
+      <td><span class="zh">可以正常判断和应用</span><span class="en">Safe to evaluate and apply</span></td>
+    </tr>
+    <tr>
+      <td><span class="st st-read"><i></i><span class="zh">读取中</span><span class="en">Reading</span></span></td>
+      <td><span class="zh">正在检索底层系统接口，数字会随进度动态变化</span><span class="en">Querying low-level system APIs; counts change with progress</span></td>
+      <td><span class="zh">等它读完，不要中途强制操作</span><span class="en">Wait for completion — don't act mid-read</span></td>
+    </tr>
+    <tr>
+      <td><span class="st st-warn"><i></i><span class="zh">待确认</span><span class="en">Pending</span></span></td>
+      <td><span class="zh">尚未得到可靠复核结果（需管理员提权、策略受限或待重启）</span><span class="en">No reliable verification yet (needs elevation, policy-locked or pending reboot)</span></td>
+      <td><span class="zh">不能当作已生效；查看详情原因，必要时提权重试</span><span class="en">Do not treat as applied; check reasons or retry elevated</span></td>
+    </tr>
+    <tr>
+      <td><span class="st st-na"><i></i><span class="zh">不可用</span><span class="en">Unavailable</span></span></td>
+      <td><span class="zh">权限不足、系统版本不支持，或当前硬件缺少对应单元</span><span class="en">Insufficient permissions, unsupported Windows build, or hardware absent</span></td>
+      <td><span class="zh">置灰保护，不会误操作；可在详情中查看具体依赖条件</span><span class="en">Locked for safety — check details for specific dependencies</span></td>
+    </tr>
+    <tr>
+      <td><span class="st st-ok" style="background:rgba(18,122,110,0.12);color:var(--brand)"><i></i><span class="zh">已应用</span><span class="en">Applied</span></span></td>
+      <td><span class="zh">修改已成功写入，并通过软件二次读取复核确认生效</span><span class="en">Changes written and verified through a second inspection read</span></td>
+      <td><span class="zh">正常使用；若有不适应随时可在软件中点击恢复</span><span class="en">Active; can be reverted inside the app whenever needed</span></td>
+    </tr>
+  </table>
+  <p class="prose reveal"><span class="zh">原则只有一条：没有得到可靠确认的项目，不会被标成「已成功」，也请你自己别当成已生效。</span><span class="en">One principle: an item without reliable confirmation is never marked “successful” — and you shouldn't treat it as applied either.</span></p>
+</section>
+
+<!-- ============ DIAG ============ -->
+<section class="block">
+  <div class="block-title reveal">
+    <span class="n">03</span>
+    <h2><span class="zh">出问题了？带上证据反馈</span><span class="en">Something wrong? Report it with evidence</span></h2>
+  </div>
+  <div class="two-col">
+    <div class="list-card reveal">
+      <h3><svg class="icon"><use href="#i-check"/></svg><span class="zh">问题包会收集</span><span class="en">A diagnostics package includes</span></h3>
+      <ul>
+        <li><span class="zh">系统版本与基础硬件信息</span><span class="en">OS version and hardware specifications</span></li>
+        <li><span class="zh">相关模块的检测与操作日志</span><span class="en">Inspection and execution logs of related modules</span></li>
+        <li><span class="zh">各项设置的最终复核状态</span><span class="en">Final verification results for each setting</span></li>
+      </ul>
+    </div>
+    <div class="list-card no reveal" style="--d:80ms">
+      <h3><svg class="icon"><use href="#i-close"/></svg><span class="zh">问题包不包含</span><span class="en">It does not include</span></h3>
+      <ul>
+        <li><span class="zh">个人文件、文档、照片、浏览器数据</span><span class="en">Personal files, documents, photos, browsing data</span></li>
+        <li><span class="zh">账号密码与凭据信息</span><span class="en">Passwords, credentials or tokens</span></li>
+        <li><span class="zh">未经脱敏的原始用户名、计算机名与具体路径（生成时已在本地自动隐去）</span><span class="en">Raw unmasked usernames, machine names or file paths (masked locally before saving)</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="prose reveal"><span class="zh">问题包在本地生成纯文本压缩包，绝不私自联网上传任何数据。你可以在本地解压审查每一行内容后，连同「做了什么操作、期望什么结果、实际发生了什么」一起发到 <a href="https://github.com/ZYY817/YuqiEngine/issues" target="_blank" rel="noopener">GitHub Issues</a>。信息越具体，越容易排查。</span><span class="en">The diagnostic package is generated locally as a plain text ZIP and never uploaded without your consent. Inspect every line if you wish, then submit it to <a href="https://github.com/ZYY817/YuqiEngine/issues" target="_blank" rel="noopener">GitHub Issues</a> with details on what happened.</span></p>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="block">
+  <div class="block-title reveal">
+    <span class="n">04</span>
+    <h2><span class="zh">常见问题</span><span class="en">FAQ</span></h2>
+  </div>
+  <div class="faq reveal">
+    <details>
+      <summary><span class="zh">用了之后帧数能提升多少？真能让游戏变快吗？</span><span class="en">How much FPS will I gain? Will it make games faster?</span><span class="pm"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+      <div class="ans"><span class="zh">宇奇引擎绝不承诺具体的帧数或延迟提升——不同硬件、显卡驱动、系统版本的差异极大，任何承诺“提升 60% FPS”的固定数字都是虚假营销。宇奇引擎做的是关闭不需要的后台服务与轮询，减少游戏调度时的偶发性卡顿与掉帧（改善 1% Low 帧）。如果系统瓶颈在显卡或 CPU 物理性能，软件无法突破物理规律。</span><span class="en">Yuqi Engine makes no fixed FPS or latency promises — hardware, drivers and OS builds vary too much for any honest number. What it does: disable unneeded components, tune background polling, and reduce frame jitter (improving 1% Low FPS). If your bottleneck is hardware capability, no software can break the laws of physics.</span></div>
+    </details>
+    <details>
+      <summary><span class="zh">为什么不做“一键推荐全部优化”？</span><span class="en">Why isn't there a "One-Click Optimize All" button?</span><span class="pm"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+      <div class="ans"><span class="zh">每个人的电脑使用环境完全不同——有的用户需要打印机，有的需要 Xbox 联机服务，有的要跑开发虚拟机。“一键优化”本质上是把别人的配置盲目强加给你的电脑，往往是系统崩溃或功能缺失的根源。我们坚持“先看懂，再选择”，不替你做擅自主张的黑盒决定。</span><span class="en">Every computer setup is unique: some need printing, some need Xbox networking, some run virtualization. “One-click optimize” forcibly imposes someone else's preferences onto your system, often leading to crashes or broken features. We insist on “understand first, then choose.”</span></div>
+    </details>
+    <details>
+      <summary><span class="zh">改坏了能恢复吗？</span><span class="en">Can I undo a bad change?</span><span class="pm"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+      <div class="ans"><span class="zh">大部分修改可以在软件内恢复，恢复前会再次读取当前真实状态。此外强烈建议在使用前创建系统还原点，实现双重保险。这也是为什么我们一直强调「在动手之前，先留好退路」。</span><span class="en">Most changes can be reverted inside the app — it re-reads the current state before restoring. Still, creating a system restore point beforehand is strongly recommended. That's why we keep saying: set a fallback first.</span></div>
+    </details>
+    <details>
+      <summary><span class="zh">为什么有些项目显示「待确认」或「不可用」？</span><span class="en">Why do some items show “Pending” or “Unavailable”?</span><span class="pm"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+      <div class="ans"><span class="zh">这正是宇奇引擎与黑盒工具的区别——“软件知道自己不知道什么”。如果底层接口未返回明确状态、复核不通过或系统版本/硬件不支持，软件绝不虚报成功，而是如实标出并保持安全锁定。另外，如果你的系统装的是精简版镜像、或已经被深度调校工具改过，很多接口本身就被移除了，大片「不可用」是正常现象——这种状态不适合再批量改动，逐项看清说明再动。</span><span class="en">This is what sets Yuqi Engine apart: the software knows what it doesn't know. If low-level APIs return uncertain data or hardware lacks support, it never fakes success — it reports honestly and keeps the setting safely locked. One more case: on systems installed from debloated images or already heavily tuned, whole interfaces have simply been removed — a wall of “Unavailable” is normal there. Don't bulk-apply on those systems; read each item before touching it.</span></div>
+    </details>
+    <details>
+      <summary><span class="zh">Windows 提示「未知发布者」，杀毒软件报警怎么办？</span><span class="en">Windows says “unknown publisher” or antivirus warns — what to do?</span><span class="pm"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+      <div class="ans"><span class="zh">软件由个人独立开发，尚未购买昂贵的商业代码签名证书，且修改系统服务与注册表的工具容易触发杀毒软件的启发式误报。确保你是从本网站官方渠道或 GitHub Releases 下载，并比对 SHA&#8209;256 校验值；若仍有顾虑，可以完全只用检测功能，不应用任何写入。</span><span class="en">The app has no expensive corporate signing certificate, and touching low-level services triggers heuristic antivirus alarms. Verify the SHA&#8209;256 hash against official GitHub Releases; if in doubt, you can strictly inspect your system without applying any changes.</span></div>
+    </details>
+    <details>
+      <summary><span class="zh">v0.1.2 和 <span data-rel-tag>v0.1.4-preview</span> 选哪个？</span><span class="en">v0.1.2 or <span data-rel-tag>v0.1.4-preview</span>?</span><span class="pm"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+      <div class="ans"><span class="zh">日常检测推荐 <span data-rel-tag>v0.1.4-preview</span>：体积轻、内置运行库，普通权限即可看清系统现状。v0.1.2 是完整工程丢失前的最后一个版本，功能更全面，但官方建议具备系统还原经验的用户体验。两个版本的详细差异见<a href="download.html">下载页</a>。</span><span class="en">For everyday inspection, pick <span data-rel-tag>v0.1.4-preview</span>: lighter download, runtime bundled, works without elevation. v0.1.2 is the last build before the full project was lost — more complete, but officially recommended only for experienced users. Details on the <a href="download.html">download page</a>.</span></div>
+    </details>
+    <details>
+      <summary><span class="zh">软件收费吗？能商用吗？</span><span class="en">Is it free? Can I use it commercially?</span><span class="pm"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+      <div class="ans"><span class="zh">永久免费。按 README 的约定：禁止倒卖、付费分发和商业使用。源码已在 GitHub 公开，仓库标记 MIT License，具体以仓库内条款为准。</span><span class="en">Free forever. Per the README: no resale, paid distribution, or commercial use. Source code is published on GitHub under the MIT license — refer to the repository for exact terms.</span></div>
+    </details>
+  </div>
+  <div class="safe-banner reveal" style="margin-top:32px;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <svg class="icon"><use href="#i-shieldCheck"/></svg>
+      <span><span class="zh"><b>看明白了？</b>第一次打开只做检测，不会改动任何设置。</span><span class="en"><b>Ready to try it?</b> Your first run is read-only inspection — nothing is changed.</span></span>
+    </div>
+    <a class="btn btn-primary btn-sm" href="download.html"><svg class="icon"><use href="#i-download"/></svg><span class="zh">前往下载</span><span class="en">Go to download</span></a>
+  </div>
+</section>
+
+</div>
+</div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/img/logo-dark.png" alt=""><span>宇奇引擎 <small>Yuqi Engine</small></span></a>
+        <p class="footer-motto"><span class="zh">先理解，再选择；可验证，也可恢复。</span><span class="en">Understand first, then choose. Verifiable, and reversible.</span></p>
+      </div>
+      <div>
+        <h4><span class="zh">产品</span><span class="en">Product</span></h4>
+        <ul>
+          <li><a href="index.html#features"><span class="zh">功能</span><span class="en">Features</span></a></li>
+          <li><a href="index.html#safety"><span class="zh">安全与恢复</span><span class="en">Safety</span></a></li>
+          <li><a href="download.html"><span class="zh">下载</span><span class="en">Download</span></a></li>
+          <li><a href="guide.html"><span class="zh">使用指南</span><span class="en">Guide</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="zh">项目</span><span class="en">Project</span></h4>
+        <ul>
+          <li><a href="story.html"><span class="zh">项目故事</span><span class="en">Story</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine" target="_blank" rel="noopener"><span class="zh">源码</span><span class="en">Source code</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine/issues" target="_blank" rel="noopener"><span class="zh">问题反馈</span><span class="en">Issues</span></a></li>
+          <li><a href="https://github.com/ZYY817/YuqiEngine/releases" target="_blank" rel="noopener"><span class="zh">版本发布</span><span class="en">Releases</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span class="zh">官方渠道</span><span class="en">Official channels</span></h4>
+        <ul>
+          <li><a href="https://www.douyin.com/user/MS4wLjABAAAAtudWpqXWwZXYdkSk0YT36zpHEPiS2YuFsQL21ihiUxI" target="_blank" rel="noopener"><span class="zh">抖音 · 智宇</span><span class="en">Douyin · 智宇</span></a></li>
+          <li><a href="https://space.bilibili.com/41173761" target="_blank" rel="noopener">Bilibili · 智宇丶817</a></li>
+          <li><a href="https://github.com/ZYY817" target="_blank" rel="noopener">GitHub · ZYY817</a></li>
+          <li><a href="https://pan.quark.cn/s/432600ae9d8d" target="_blank" rel="noopener"><span class="zh">夸克网盘（备用下载）</span><span class="en">Quark Drive (mirror)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> <span class="zh">宇奇引擎 · 由智宇与 AI 协作开发</span><span class="en">Yuqi Engine · Built by Zhiyu with AI collaboration</span></span>
+      <span><span class="zh">永久免费 · 禁止倒卖、付费分发和商业使用</span><span class="en">Free forever · No resale, paid distribution or commercial use</span></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
