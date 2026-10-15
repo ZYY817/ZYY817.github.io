@@ -2,4 +2,4 @@
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://zyy817.github.io/yuqi-site/sitemap.xml
+Sitemap: https://zyy817.github.io/sitemap.xml
