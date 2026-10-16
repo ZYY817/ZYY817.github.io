@@ -353,11 +353,10 @@
         <div class="demo-list">
           <div class="demo-item" data-final="ok" data-delay="900" data-reason-zh="✓ WMI 正常 · 符合目标" data-reason-en="✓ WMI OK · Matches target">
             <div>
-              <div class="name"><span class="zh">全局优先独显</span><span class="en">Prefer discrete GPU globally</span></div>
+              <div class="name"><span class="zh">全局优先独显</span><span class="en">Prefer discrete GPU globally</span><span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span></div>
               <div class="desc"><span class="zh">多显卡设备上可减少游戏误用核显的概率。</span><span class="en">On multi-GPU devices, reduces the chance of games using the integrated GPU.</span></div>
             </div>
             <div class="right">
-              <span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span>
               <span class="st"></span>
               <button type="button" class="why" aria-label="查看原因 Why" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg>
                 <span class="tip"><b><span class="zh">已确认</span><span class="en">Confirmed</span></b><span class="zh">已读取到当前系统状态，且符合目标设置。</span><span class="en">The current state was read and matches the target setting.</span></span>
@@ -366,13 +365,12 @@
             </div>
           </div>
 
-          <div class="demo-item" data-final="na" data-delay="1500" data-reason-zh="— 当前硬件不支持此调度" data-reason-en="— Not supported on this hardware">
+          <div class="demo-item" data-final="na" data-delay="1500" data-reason-zh="— 当前硬件不支持此调度" data-reason-en="— Hardware not supported">
             <div>
-              <div class="name"><span class="zh">开启硬件加速 GPU 调度</span><span class="en">Hardware-accelerated GPU scheduling</span></div>
+              <div class="name"><span class="zh">开启硬件加速 GPU 调度</span><span class="en">Hardware-accelerated GPU scheduling</span><span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span></div>
               <div class="desc"><span class="zh">GPU 直接管理调度队列，在受支持驱动上可能改善帧时间和输入响应。</span><span class="en">The GPU manages its own scheduling queue; on supported drivers it may improve frame time and input response.</span></div>
             </div>
             <div class="right">
-              <span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span>
               <span class="st"></span>
               <button type="button" class="why" aria-label="查看原因 Why" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg>
                 <span class="tip"><b><span class="zh">不可用</span><span class="en">Unavailable</span></b><span class="zh">当前权限、系统版本、硬件或依赖条件不满足。该项目不会参与应用。</span><span class="en">Permissions, Windows version, hardware or dependencies don't allow it. This item won't be applied.</span></span>
@@ -381,13 +379,12 @@
             </div>
           </div>
 
-          <div class="demo-item" data-final="warn" data-delay="2100" data-reason-zh="! 需管理员权限提权复核" data-reason-en="! Elevation needed to verify">
+          <div class="demo-item" data-final="warn" data-delay="2100" data-reason-zh="! 需管理员权限提权复核" data-reason-en="! Needs elevation to verify">
             <div>
-              <div class="name"><span class="zh">提升游戏 GPU 优先级</span><span class="en">Raise game GPU priority</span></div>
+              <div class="name"><span class="zh">提升游戏 GPU 优先级</span><span class="en">Raise game GPU priority</span><span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span></div>
               <div class="desc"><span class="zh">可能提升游戏图形任务优先级和帧时间一致性。</span><span class="en">May raise the priority of game graphics tasks and frame-time consistency.</span></div>
             </div>
             <div class="right">
-              <span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span>
               <span class="st"></span>
               <button type="button" class="why" aria-label="查看原因 Why" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg>
                 <span class="tip"><b><span class="zh">待确认</span><span class="en">Pending</span></b><span class="zh">尚未得到可靠复核结果，不能当作已应用。项目保持锁定，不会执行系统修改。</span><span class="en">No reliable verification yet, so it is not treated as applied. The item stays locked and nothing is changed.</span></span>
@@ -396,13 +393,12 @@
             </div>
           </div>
 
-          <div class="demo-item" data-final="ok" data-delay="3300" data-reason-zh="✓ 策略已写入 · 已二次复核" data-reason-en="✓ Policy written &amp; re-verified">
+          <div class="demo-item" data-final="ok" data-delay="3300" data-reason-zh="✓ 策略已写入 · 已二次复核" data-reason-en="✓ Written &amp; re-verified">
             <div>
-              <div class="name"><span class="zh">设置 GPU SFIO 优先级</span><span class="en">Set GPU SFIO priority</span></div>
+              <div class="name"><span class="zh">设置 GPU SFIO 优先级</span><span class="en">Set GPU SFIO priority</span><span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span></div>
               <div class="desc"><span class="zh">让对应 Windows 策略或功能按目标值运行，减少后台行为、提示或资源占用。</span><span class="en">Runs the related Windows policy or feature at its target value, reducing background activity, prompts or resource use.</span></div>
             </div>
             <div class="right">
-              <span class="reason-chip chip-read"><span class="zh">⟳ 检索接口中…</span><span class="en">⟳ Querying APIs…</span></span>
               <span class="st"></span>
               <button type="button" class="why" aria-label="查看原因 Why" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg>
                 <span class="tip"><b><span class="zh">已确认</span><span class="en">Confirmed</span></b><span class="zh">读取耗时较长，但最终拿到了可靠状态。</span><span class="en">Reading took longer, but a reliable state was obtained in the end.</span></span>
