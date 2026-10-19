@@ -486,7 +486,14 @@
 
   if (embeds.length) {
     embeds.forEach(function (em) {
-      fitEmbed(em, em.getAttribute("data-embed") === "hero");
+      fitEmbed(em, false);
+      /* the hero iframe boots a whole app on the main thread — defer its
+         first load to the first idle moment so the page itself paints and
+         becomes interactive before that work starts */
+      if (em.getAttribute("data-embed") === "hero") {
+        var defer = window.requestIdleCallback || function (fn) { return setTimeout(fn, 800); };
+        defer(function () { fitEmbed(em, true); }, { timeout: 1600 });
+      }
     });
 
     if ("IntersectionObserver" in window) {
@@ -504,7 +511,9 @@
         });
       }, { rootMargin: "80px" });
       embeds.forEach(function (em) {
-        loadIo.observe(em);
+        /* the hero embed loads on idle (above) — don't let the loader
+           observer pull it back to page-start */
+        if (em.getAttribute("data-embed") !== "hero") loadIo.observe(em);
         sleepIo.observe(em);
       });
     } else {
