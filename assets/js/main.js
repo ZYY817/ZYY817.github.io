@@ -110,23 +110,26 @@
        progressive lighting when the pin is disabled (mobile) */
     if (flowPin) {
       var pr = flowPin.getBoundingClientRect();
-      var pinned = flowPin.offsetHeight > vh * 1.2;
-      var fp;
-      if (pinned) {
-        fp = clamp(-pr.top / (flowPin.offsetHeight - vh), 0, 1);
-      } else {
-        fp = clamp((vh * 0.82 - pr.top) / (pr.height * 0.9 + vh * 0.1), 0, 1);
+      /* offscreen: skip all scrub work for this frame */
+      if (pr.bottom > -80 && pr.top < vh + 80) {
+        var pinned = flowPin.offsetHeight > vh * 1.2;
+        var fp;
+        if (pinned) {
+          fp = clamp(-pr.top / (flowPin.offsetHeight - vh), 0, 1);
+        } else {
+          fp = clamp((vh * 0.82 - pr.top) / (pr.height * 0.9 + vh * 0.1), 0, 1);
+        }
+        if (reduceMotion) fp = pr.top < vh ? 1 : 0;
+        if (flowBar) flowBar.style.setProperty("--fp", fp.toFixed(3));
+        var n = flowSteps.length - 1;
+        var cur = clamp(Math.floor(fp * (n + 1) + 0.0001), 0, n);
+        flowSteps.forEach(function (s, i) {
+          s.classList.toggle("lit", fp >= i / n - 0.02);
+          s.classList.toggle("on", i === cur);
+        });
+        flowVis.forEach(function (v, i) { v.classList.toggle("on", i === cur); });
+        flowPin.setAttribute("data-step", cur);
       }
-      if (reduceMotion) fp = pr.top < vh ? 1 : 0;
-      if (flowBar) flowBar.style.setProperty("--fp", fp.toFixed(3));
-      var n = flowSteps.length - 1;
-      var cur = clamp(Math.floor(fp * (n + 1) + 0.0001), 0, n);
-      flowSteps.forEach(function (s, i) {
-        s.classList.toggle("lit", fp >= i / n - 0.02);
-        s.classList.toggle("on", i === cur);
-      });
-      flowVis.forEach(function (v, i) { v.classList.toggle("on", i === cur); });
-      flowPin.setAttribute("data-step", cur);
     }
 
     if (showcase) updateShowcase(vh);
@@ -145,6 +148,7 @@
   function updateShowcase(vh) {
     var mobile = window.innerWidth <= 760;
     var r = showcase.getBoundingClientRect();
+    if (r.bottom < -80 || r.top > vh + 80) return; /* offscreen: skip */
     var total = showcase.offsetHeight - vh;
     var p = total > 0 ? clamp(-r.top / total, 0, 1) : 0;
     var z = mobile || reduceMotion ? 0 : smooth(clamp((p - 0.12) / 0.58, 0, 1));
@@ -484,6 +488,25 @@
     } catch (e) {}
   }
 
+  /* freeze everything animatable while the user is actively scrolling:
+     page-level animations get animation-play-state:paused via the
+     .is-scrolling class, and each live iframe gets its animations and
+     transitions halted. Scrolling on a weak GPU is then pure compositing. */
+  var scrollFreezeT = null;
+  var scrollingNow = false;
+  function refreshSleep(em) { sleepEmbed(em, scrollingNow || !!em._offscreen); }
+  function setScrolling(on) {
+    if (on === scrollingNow) return;
+    scrollingNow = on;
+    document.documentElement.classList.toggle("is-scrolling", on);
+    embeds.forEach(refreshSleep);
+  }
+  window.addEventListener("scroll", function () {
+    setScrolling(true);
+    if (scrollFreezeT) clearTimeout(scrollFreezeT);
+    scrollFreezeT = setTimeout(function () { setScrolling(false); }, 180);
+  }, { passive: true });
+
   if (embeds.length) {
     embeds.forEach(function (em) {
       fitEmbed(em, false);
@@ -507,7 +530,8 @@
       }, { rootMargin: "500px" });
       var sleepIo = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
-          sleepEmbed(e.target, !e.isIntersecting);
+          e.target._offscreen = !e.isIntersecting;
+          refreshSleep(e.target);
         });
       }, { rootMargin: "80px" });
       embeds.forEach(function (em) {

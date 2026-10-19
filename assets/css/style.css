@@ -1882,8 +1882,27 @@ html[data-lang="en"] .tools h3 {
   border-bottom: 1px solid var(--line);
   padding: 14px 0;
   margin-bottom: clamp(96px, 13vw, 168px);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  position: relative;
+}
+/* static gradient fades instead of mask-image — a mask forces the whole
+   masked group to re-raster whenever the track moves */
+.ticker::before,
+.ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8%;
+  z-index: 2;
+  pointer-events: none;
+}
+.ticker::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg), transparent);
+}
+.ticker::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg), transparent);
 }
 .ticker-track {
   display: flex;
@@ -1920,6 +1939,26 @@ html[data-lang="en"] .tools h3 {
   .ticker-track {
     animation: none;
   }
+}
+
+/* users who ask the OS to reduce transparency get zero backdrop work */
+@media (prefers-reduced-transparency: reduce) {
+  .nav.scrolled {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* while the user is actively scrolling, freeze every ambient animation —
+   the compositor then only has to translate already-painted layers */
+html.is-scrolling .ticker-track,
+html.is-scrolling .beam,
+html.is-scrolling .float-chip,
+html.is-scrolling .embed-live i,
+html.is-scrolling .live-hint,
+html.is-scrolling .st-read i,
+html.is-scrolling .t-caret {
+  animation-play-state: paused !important;
 }
 
 /* ==========================================================
