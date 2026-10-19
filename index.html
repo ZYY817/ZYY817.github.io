@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<script src="assets/js/icons.js"></script>
+<script src="assets/js/icons.js" defer></script>
 
 <!-- ============ NAV ============ -->
 <header class="nav">
@@ -489,8 +489,11 @@
 
     <div class="live-stage reveal" style="--d:120ms">
       <div class="live-frame">
-        <div class="app-embed" data-embed="interface">
+        <div class="app-embed poster" data-embed="interface">
           <iframe data-src="app/?embed=1" title="宇奇引擎早期版本界面视觉稿 · 可交互预览 Yuqi Engine early UI preview" tabindex="-1"></iframe>
+          <button type="button" class="embed-load" aria-label="加载交互预览 Load interactive preview">
+            <span class="load-pill"><svg class="icon"><use href="#i-play"/></svg><span class="zh">加载交互预览</span><span class="en">Load interactive preview</span></span>
+          </button>
           <div class="embed-live" aria-hidden="true"><i></i><span class="zh">界面可直接点击体验</span><span class="en">Interactive — click around</span></div>
           <picture>
             <source type="image/webp" srcset="assets/img/app-preview.webp">
@@ -659,7 +662,7 @@
   <div class="wrap">
     <div class="author reveal">
       <div class="grid-bg"></div>
-      <img class="author-logo" src="assets/img/logo-light.png" alt="">
+      <img class="author-logo" src="assets/img/logo-light.png" alt="" loading="lazy" decoding="async">
       <div class="kicker"><svg class="ymark"><use href="#i-ymark"/></svg><span class="zh">幕后</span><span class="en">Behind it</span></div>
       <h2 class="h2"><span class="zh">一个人，在下班后慢慢磨出来的。</span><span class="en">Built by one person, in the hours after work.</span></h2>
       <div class="author-body">

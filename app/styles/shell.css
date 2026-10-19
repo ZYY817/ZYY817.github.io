@@ -9,12 +9,8 @@
    scrollbar            自定义滚动条（溢出才显形）
    sidebar-active-snow  选中态：极简浮雪（纯白 + 物理投影）
    ========================================================================== */
-@import url("modules/tokens-sidebar.css");
-@import url("modules/sidebar-container.css");
-@import url("modules/scrollbar.css");
-@import url("modules/sidebar-active-snow.css");
-@import url("modules/view-placeholder.css");
-/* home-overview.css 已改为视图按需加载（view-loader 注册到 'overview'），不再常驻 import */
+/* modules/* 五个子样式已迁移为 index.html 中的并行 <link>（消除 @import 瀑布）。
+   home-overview.css 经 view-loader 注册到 'overview' 按需加载。 */
 
 :root {
     /* 尺寸 */
@@ -621,7 +617,13 @@ html.embed-mode .ambient-light {
 }
 html.embed-mode .main-content,
 html.embed-mode .app-body *,
-html.embed-mode .titlebar {
+html.embed-mode .titlebar,
+/* drawers/masks hang off .app-wrapper (outside .app-body) — the notify
+   drawer alone carries blur(28px)+saturate(140%) over a 360px panel */
+html.embed-mode .ov-notify-drawer,
+html.embed-mode .ov-notify-mask,
+html.embed-mode .pw-param-drawer,
+html.embed-mode .pw-param-panel {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }

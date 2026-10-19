@@ -92,64 +92,84 @@
 
   function smooth(x) { return x * x * (3 - 2 * x); }
 
+  var flowPinH = 0; /* offsetHeight is layout-stable between resizes —
+                     cache it instead of re-reading every frame */
+  var lastStep = -1, lastFp = "";
+
   function onScroll() {
     ticking = false;
     var vh = window.innerHeight;
     var y = window.scrollY || window.pageYOffset;
 
+    /* ---- reads first: every layout read AFTER a style write forces a
+       synchronous style+layout recalc, so keep them on separate sides ---- */
+    var pr = null, fpH = 0;
+    if (flowPin) {
+      pr = flowPin.getBoundingClientRect();
+      if (pr.bottom > -80 && pr.top < vh + 80) {
+        if (!flowPinH) flowPinH = flowPin.offsetHeight;
+        fpH = flowPinH;
+      } else {
+        pr = null; /* offscreen: skip all scrub work for this frame */
+      }
+    }
+    var sr = null, sH = 0;
+    if (showcase) {
+      sr = showcase.getBoundingClientRect();
+      if (sr.bottom > -80 && sr.top < vh + 80) sH = showcase.offsetHeight;
+      else sr = null;
+    }
+
+    /* ---- writes ---- */
     if (nav) nav.classList.toggle("scrolled", y > 8);
 
     /* hero layered parallax — gentle drift on grid and floating chips */
     if (pxLayers.length && !reduceMotion && y < vh * 1.5) {
       pxLayers.forEach(function (p) {
-        p[0].style.setProperty("--py", (y * p[1]).toFixed(1) + "px");
+        var v = (y * p[1]).toFixed(1) + "px";
+        if (p[2] !== v) { p[0].style.setProperty("--py", v); p[2] = v; }
       });
     }
 
     /* pinned flow: scroll scrubs the active step; falls back to
        progressive lighting when the pin is disabled (mobile) */
-    if (flowPin) {
-      var pr = flowPin.getBoundingClientRect();
-      /* offscreen: skip all scrub work for this frame */
-      if (pr.bottom > -80 && pr.top < vh + 80) {
-        var pinned = flowPin.offsetHeight > vh * 1.2;
-        var fp;
-        if (pinned) {
-          fp = clamp(-pr.top / (flowPin.offsetHeight - vh), 0, 1);
-        } else {
-          fp = clamp((vh * 0.82 - pr.top) / (pr.height * 0.9 + vh * 0.1), 0, 1);
-        }
-        if (reduceMotion) fp = pr.top < vh ? 1 : 0;
-        if (flowBar) flowBar.style.setProperty("--fp", fp.toFixed(3));
-        var n = flowSteps.length - 1;
-        var cur = clamp(Math.floor(fp * (n + 1) + 0.0001), 0, n);
-        flowSteps.forEach(function (s, i) {
-          s.classList.toggle("lit", fp >= i / n - 0.02);
-          s.classList.toggle("on", i === cur);
-        });
-        flowVis.forEach(function (v, i) { v.classList.toggle("on", i === cur); });
-        flowPin.setAttribute("data-step", cur);
+    if (pr) {
+      var pinned = fpH > vh * 1.2;
+      var fp;
+      if (pinned) {
+        fp = clamp(-pr.top / (fpH - vh), 0, 1);
+      } else {
+        fp = clamp((vh * 0.82 - pr.top) / (pr.height * 0.9 + vh * 0.1), 0, 1);
       }
+      if (reduceMotion) fp = pr.top < vh ? 1 : 0;
+      var fpv = fp.toFixed(3);
+      if (flowBar && fpv !== lastFp) { flowBar.style.setProperty("--fp", fpv); lastFp = fpv; }
+      var n = flowSteps.length - 1;
+      var cur = clamp(Math.floor(fp * (n + 1) + 0.0001), 0, n);
+      flowSteps.forEach(function (s, i) {
+        s.classList.toggle("lit", fp >= i / n - 0.02);
+        s.classList.toggle("on", i === cur);
+      });
+      flowVis.forEach(function (v, i) { v.classList.toggle("on", i === cur); });
+      if (cur !== lastStep) { flowPin.setAttribute("data-step", cur); lastStep = cur; }
     }
 
-    if (showcase) updateShowcase(vh);
+    if (sr) updateShowcase(vh, sr, sH);
   }
   function requestTick() {
     if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
   }
   window.addEventListener("scroll", requestTick, { passive: true });
-  window.addEventListener("resize", requestTick);
+  window.addEventListener("resize", function () { flowPinH = 0; requestTick(); });
 
   /* ---------- showcase: sticky zoom + tabs ---------- */
   var zoomImgs = $$(".zoom-img");
   var callouts = $$(".callout");
   var activeShot = zoomImgs.length ? zoomImgs[0].getAttribute("data-shot") : null;
 
-  function updateShowcase(vh) {
+  function updateShowcase(vh, r, sH) {
     var mobile = window.innerWidth <= 760;
-    var r = showcase.getBoundingClientRect();
-    if (r.bottom < -80 || r.top > vh + 80) return; /* offscreen: skip */
-    var total = showcase.offsetHeight - vh;
+    var total = (sH || showcase.offsetHeight) - vh;
     var p = total > 0 ? clamp(-r.top / total, 0, 1) : 0;
     var z = mobile || reduceMotion ? 0 : smooth(clamp((p - 0.12) / 0.58, 0, 1));
     zoomImgs.forEach(function (img) { img.style.setProperty("--z", z.toFixed(3)); });
@@ -469,21 +489,32 @@
   }
   function fitEmbeds() { embeds.forEach(function (em) { fitEmbed(em, false); }); }
 
-  /* pause the iframe's animations while it's scrolled out of view */
+  /* pause the iframe's animations while scrolling or out of view —
+     via the Web Animations API so no style recalculation is triggered.
+     (The previous stylesheet injection forced a whole-document style
+     recalc inside the app on every scroll start/stop.) */
   function sleepEmbed(em, sleep) {
     var ifr = $("iframe", em);
     if (!ifr || !ifr.src) return;
     try {
       var d = ifr.contentDocument;
       if (!d) return;
-      var st = d.getElementById("yuqi-sleep");
-      if (sleep && !st) {
-        st = d.createElement("style");
-        st.id = "yuqi-sleep";
-        st.textContent = "*,*::before,*::after{animation-play-state:paused!important;transition:none!important}";
-        d.head.appendChild(st);
-      } else if (!sleep && st) {
-        st.remove();
+      if (d.getAnimations) {
+        var anims = d.getAnimations({ subtree: true });
+        for (var i = 0; i < anims.length; i++) {
+          if (sleep) anims[i].pause(); else anims[i].play();
+        }
+      } else {
+        /* fallback for engines without getAnimations */
+        var st = d.getElementById("yuqi-sleep");
+        if (sleep && !st) {
+          st = d.createElement("style");
+          st.id = "yuqi-sleep";
+          st.textContent = "*,*::before,*::after{animation-play-state:paused!important;transition:none!important}";
+          d.head.appendChild(st);
+        } else if (!sleep && st) {
+          st.remove();
+        }
       }
     } catch (e) {}
   }
@@ -507,6 +538,15 @@
     scrollFreezeT = setTimeout(function () { setScrolling(false); }, 180);
   }, { passive: true });
 
+  /* ambient animations that survive past their scroll stop also sleep
+     when their section leaves the viewport (.anim-off → paused in CSS) */
+  if ("IntersectionObserver" in window) {
+    var ambIo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle("anim-off", !e.isIntersecting); });
+    }, { rootMargin: "120px" });
+    $$(".ticker, .ver.primary, .term, .hero, .app-embed").forEach(function (el) { ambIo.observe(el); });
+  }
+
   if (embeds.length) {
     embeds.forEach(function (em) {
       fitEmbed(em, false);
@@ -528,6 +568,16 @@
           }
         });
       }, { rootMargin: "500px" });
+      /* poster mode: the static screenshot stays until the user explicitly
+         asks for the live app — a second full boot never runs uninvited */
+      $$(".embed-load").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var em = btn.closest(".app-embed");
+          if (!em) return;
+          em.classList.remove("poster");
+          fitEmbed(em, true);
+        });
+      });
       var sleepIo = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           e.target._offscreen = !e.isIntersecting;
@@ -537,7 +587,7 @@
       embeds.forEach(function (em) {
         /* the hero embed loads on idle (above) — don't let the loader
            observer pull it back to page-start */
-        if (em.getAttribute("data-embed") !== "hero") loadIo.observe(em);
+        if (em.getAttribute("data-embed") !== "hero" && !em.classList.contains("poster")) loadIo.observe(em);
         sleepIo.observe(em);
       });
     } else {

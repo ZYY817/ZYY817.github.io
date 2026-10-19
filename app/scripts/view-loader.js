@@ -288,17 +288,15 @@
         mainContent.classList.add('is-loading');
 
         try {
-            // 4. 并行预热 CSS（不阻塞 HTML 注入）
+            // 4. 并行预热 CSS
             const cssTask = meta.css ? injectCSS(meta.css) : Promise.resolve();
 
             // 5. 拉 HTML
             const html = await fetchText(meta.html);
 
-            // 6. 注入
-            mainContent.innerHTML = html;
-
-            // 7. 等 CSS 就绪
+            // 6. 先等 CSS 就绪，再注入 —— 避免未上样式的裸 DOM 闪现与二次布局
             await cssTask;
+            mainContent.innerHTML = html;
 
             // 8. 加载 JS（自注册到 __VIEW_INIT__）
             if (meta.js) await injectJS(meta.js);

@@ -8,13 +8,20 @@
     <!-- 引入字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
     <!-- 嵌入模式（官网 iframe 内）：去掉桌面壳与重型装饰，窗口铺满 -->
     <script>if (location.search.indexOf("embed") >= 0) document.documentElement.classList.add("embed-mode");</script>
     <link rel="stylesheet" href="styles/shell.css">
-    <link rel="stylesheet" href="styles/module-template.css">
-    <!-- Lucide 图标库（本地构建，不依赖外部 CDN） -->
-    <script src="scripts/lucide.min.js"></script>
+    <!-- module-template.css 不再全局加载：11 个矩阵视图经 VIEW_REGISTRY 按需注入 -->
+    <link rel="stylesheet" href="styles/modules/tokens-sidebar.css">
+    <link rel="stylesheet" href="styles/modules/sidebar-container.css">
+    <link rel="stylesheet" href="styles/modules/scrollbar.css">
+    <link rel="stylesheet" href="styles/modules/sidebar-active-snow.css">
+    <link rel="stylesheet" href="styles/modules/view-placeholder.css">
+    <!-- Lucide 图标库（本地构建，不依赖外部 CDN）；defer 防止 350KB 阻塞解析，
+         DOMContentLoaded 时的 createIcons 兜底渲染所有图标 -->
+    <script src="scripts/lucide.min.js" defer></script>
     <!-- 外壳组件：标题栏 + 侧边栏 -->
     <script src="scripts/components/title-bar.js" defer></script>
     <script src="scripts/components/side-bar.js" defer></script>

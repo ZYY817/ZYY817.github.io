@@ -69,7 +69,6 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 img {
@@ -371,6 +370,11 @@ body::before {
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
 }
+/* a viewport-sized overlay costs a fullscreen alpha-blend every frame —
+   drop it during scroll (invisible at 2.8% opacity anyway) */
+html.is-scrolling body::before {
+  display: none;
+}
 
 /* ---------- section scaffolding ---------- */
 .section {
@@ -488,6 +492,9 @@ html[data-lang="zh"] .h2 {
 .hero .grid-bg {
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 72%, #000 20%, transparent 75%);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 72%, #000 20%, transparent 75%);
+  /* pinned to its own layer so the per-frame --py parallax update stays
+     compositor-side instead of re-rasterizing the masked grid */
+  will-change: translate;
 }
 .hero-glow {
   position: absolute;
@@ -1081,7 +1088,7 @@ html[data-lang="en"] .what-card p {
   place-items: center;
   color: var(--ink-4);
   position: relative;
-  transition: all 0.6s var(--ease);
+  transition: color 0.6s var(--ease), background 0.6s var(--ease), border-color 0.6s var(--ease), box-shadow 0.6s var(--ease);
 }
 .fstep .flow-node {
   position: absolute;
@@ -1503,7 +1510,9 @@ html[data-lang="en"] .what-card p {
   opacity: 0;
   overflow: hidden;
   transform: translateX(6px);
-  transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), max-width 0.3s var(--ease), padding 0.3s var(--ease), background 0.3s, color 0.3s, border-color 0.3s;
+  /* max-width/padding apply instantly — animating them would relayout
+     the flex row every frame; opacity+transform do the visual work */
+  transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), background 0.3s, color 0.3s, border-color 0.3s;
   pointer-events: none;
 }
 .reason-chip.chip-ok {
@@ -1943,7 +1952,8 @@ html[data-lang="en"] .tools h3 {
 
 /* users who ask the OS to reduce transparency get zero backdrop work */
 @media (prefers-reduced-transparency: reduce) {
-  .nav.scrolled {
+  .nav.scrolled,
+  .mobile-menu {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -1958,6 +1968,16 @@ html.is-scrolling .embed-live i,
 html.is-scrolling .live-hint,
 html.is-scrolling .st-read i,
 html.is-scrolling .t-caret {
+  animation-play-state: paused !important;
+}
+
+/* ambient animations also sleep once their section leaves the viewport —
+   no point compositing a marquee/beam/blink nobody can see */
+.ticker.anim-off .ticker-track,
+.ver.primary.anim-off .beam,
+.term.anim-off .t-caret,
+.hero.anim-off .float-chip,
+.app-embed.anim-off .embed-live i {
   animation-play-state: paused !important;
 }
 
@@ -2036,7 +2056,8 @@ html.is-scrolling .t-caret {
 .app-embed.poster .fallback-shot {
   display: block;
 }
-.app-embed.poster .live-hint {
+.app-embed.poster .live-hint,
+.app-embed.poster .embed-live {
   display: none;
 }
 .embed-load {
@@ -3357,7 +3378,10 @@ html[data-lang="zh"] .page-hero .h1 {
 /* border beam — featured version card only */
 .ver.primary .beam {
   position: absolute;
-  inset: -75%;
+  /* 75% overscan is more than double what's needed to cover the card
+     while rotating — -35% still clears the circumcircle and cuts the
+     composited layer's pixel area by ~60% */
+  inset: -35%;
   z-index: 0;
   background: conic-gradient(
     from 0deg,
