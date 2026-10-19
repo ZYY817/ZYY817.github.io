@@ -59,6 +59,8 @@ html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 16px);
+  overscroll-behavior-y: none; /* no rubber-band bounce at page ends —
+                                 keeps the sticky-nav frame stable */
 }
 body {
   margin: 0;
@@ -470,8 +472,9 @@ html[data-lang="zh"] .h2 {
 /* reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  /* tiny scale tail makes the settle feel weighted rather than floaty */
+  transform: translateY(22px) scale(0.985);
+  transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
   transition-delay: var(--d, 0ms);
 }
 .reveal.in {
@@ -712,6 +715,10 @@ html[data-lang="zh"] .hero-title {
 .float-chip {
   position: absolute;
   z-index: 3;
+  /* parallax rides on the translate property (style update only);
+     the bob animation lives on transform so keyframes never need
+     to re-resolve var(--py) mid-flight */
+  translate: 0 var(--py, 0px);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -764,10 +771,10 @@ html[data-lang="zh"] .hero-title {
 @keyframes bob {
   0%,
   100% {
-    translate: 0 var(--py, 0px);
+    transform: translateY(0);
   }
   50% {
-    translate: 0 calc(var(--py, 0px) - 6px);
+    transform: translateY(-6px);
   }
 }
 

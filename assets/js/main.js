@@ -70,7 +70,9 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    /* fire well before the element reaches reading position — content
+       should already be settled by the time the eye lands on it */
+    }, { rootMargin: "0px 0px -14% 0px", threshold: 0.04 });
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("in"); });
